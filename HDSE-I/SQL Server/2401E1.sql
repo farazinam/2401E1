@@ -399,3 +399,203 @@ SELECT * FROM vwEmpRecWithCon2;
 sp_helptext vwEmpRecWithCon2;
 
 SELECT * FROM stdRec;
+
+-- ________________________________________________________DAY 10________________________________________________
+
+--CREATE VIEW WITH JOIN
+SELECT * FROM customer;
+SELECT * FROM Product;
+
+CREATE VIEW vwCusPro
+AS
+SELECT * FROM Customer INNER JOIN Product
+ON Customer.Customer_id = Product.c_id;
+
+SELECT * FROM vwCusPro;
+
+DELETE FROM vwCusPro WHERE Customer_id = 2;
+
+ALTER TRIGGER dlt_JoinRec
+ON vwCusPro
+INSTEAD OF DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DELETE FROM Product 
+    WHERE c_id IN (SELECT c_id FROM deleted);
+
+END;
+
+--TRANSACTIONS
+
+SELECT * FROM stdRec;
+
+DELETE FROM stdRec WHERE id = 41;  -- Implicit Transection
+
+BEGIN TRANSACTION
+DELETE FROM stdRec WHERE id = 39;  -- Explicit Transection
+
+--either
+ROLLBACK;
+
+--or
+COMMIT;
+
+
+-- ________________________________________________________DAY  11________________________________________________
+
+TRIGGERS
+
+--1 DML TRIGGERS
+-- -> After Trigger
+-- -> Instead Of Trigger
+
+--AFTER
+INSERT INTO stdRec VALUES ('d', 'd@gmail.com', 22, 'Khi');
+
+ALTER TRIGGER trg_AfterIns
+ON stdrec
+AFTER INSERT
+AS 
+BEGIN
+--PRINT 'Mubarak Ho record insert hogya';
+SELECT * FROM stdRec;
+END
+
+DROP TRIGGER trg_AfterIns;
+DROP TRIGGER trg_Afterdel;
+DROP TRIGGER trg_AfterIns;
+
+DELETE FROM stdRec WHERE id = 43;
+
+CREATE TRIGGER trg_Afterdel
+ON stdrec
+AFTER DELETE
+AS 
+BEGIN
+--PRINT 'Mubarak Ho record insert hogya';
+SELECT * FROM stdRec;
+END
+
+UPDATE stdRec SET name = 'dilawar' WHERE id = 47;
+
+ALTER TRIGGER trg_AfterUpd
+ON stdrec
+AFTER UPDATE
+AS 
+BEGIN
+--PRINT 'Mubarak Ho record insert hogya';
+SELECT * FROM stdRec;
+END
+
+SELECT * FROM stdRec;
+
+
+-- ________________________________________________________DAY  12________________________________________________
+
+--INSTEAD OF
+CREATE TRIGGER trg_InsteadOfIns
+ON stdrec
+INSTEAD OF INSERT
+AS 
+BEGIN
+PRINT 'Record not inserted - see error in the query';
+END
+
+INSERT INTO stdRec VALUES ('y', 'y@gmail.com', 22, 'Karachi');
+
+
+CREATE TRIGGER trg_InsteadOfDel
+ON stdrec
+INSTEAD OF DELETE
+AS 
+BEGIN
+PRINT 'Record not deleted - see error in the query';
+END
+
+DELETE FROM stdRec WHERE id = 42;
+
+DROP TRIGGER trg_InsteadOfDel;
+
+
+CREATE TRIGGER trg_InsteadOfUpd
+ON stdrec
+INSTEAD OF UPDATE
+AS 
+BEGIN
+PRINT 'Record not Updated - see error in the query';
+END
+
+UPDATE stdRec SET name = 'adil' WHERE id = 42;
+
+--2 DDL TRIGGERS
+
+CREATE TRIGGER ddl_createTable
+ON DATABASE
+FOR CREATE_TABLE
+AS 
+BEGIN
+PRINT 'New Table Creation is NOT Allowed!'
+ROLLBACK;
+END
+
+CREATE TABLE xyz(id INT IDENTITY(101, 1), sname VARCHAR(255), email VARCHAR(255));
+
+CREATE TRIGGER ddl_dropTable
+ON DATABASE
+FOR DROP_TABLE
+AS 
+BEGIN
+PRINT 'Table Deletion is NOT Allowed!'
+ROLLBACK;
+END
+
+DROP TABLE std;
+
+CREATE TRIGGER ddl_alterTable
+ON DATABASE
+FOR ALTER_TABLE
+AS 
+BEGIN
+PRINT 'Table Alteration is NOT Allowed!'
+ROLLBACK;
+END
+
+ALTER TABLE stdrec ADD xyz VARCHAR(255);
+
+
+--3 LOGON TRIGGERS
+
+
+-- ________________________________________________________DAY  13________________________________________________
+
+--ERROR HANDLING
+
+BEGIN TRY
+--DECLARE @num1 INT
+--SET @num1 = 10;
+--DECLARE @num2 INT = 0;
+DECLARE @num1 INT = 1, @num2 INT = 0;
+PRINT @num1/@num2;
+END TRY
+
+BEGIN CATCH 
+PRINT 'CAN,T DIVIDE by ZERO'
+END CATCH
+
+
+
+--DATA CONTROL LANGUAGE - DCL
+
+CREATE LOGIN lab1 WITH PASSWORD = '123';
+CREATE USER lab1 FROM LOGIN lab1;
+
+GRANT SELECT on stdrec to lab1;
+
+GRANT UPDATE, INSERT on stdrec to lab1
+
+REVOKE SELECT on stdrec to lab1;
+
+
+
