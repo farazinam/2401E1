@@ -1,0 +1,147 @@
+//Day 4
+
+//Nested Switch
+//string cat = Console.ReadLine();
+//cat = cat.ToLower();
+//switch (cat)
+//{
+//    case "mobile":
+//        Console.WriteLine("You Selected Mobile");
+//        break;
+//    case "laptop":
+//        Console.WriteLine("You Selected Laptop");
+//        break;
+//    case "computer":
+//        Console.WriteLine("You Selected Computer - Which brand?");
+//        string brand = Console.ReadLine();
+//        switch (brand)
+//        {
+//            case "HP":
+//               Console.WriteLine("You Selected HP Computer");
+//                break;
+//            case "DELL":
+//                Console.WriteLine("You Selected DELL Computer");
+//                break;
+//            case "LENOVO":
+//                Console.WriteLine("You Selected LENOVO Computer");
+//                break;
+//            default:
+//                Console.WriteLine("Sorry1 This brand is not available");
+//                break;
+//        }
+//        break;
+//    default:
+//        Console.WriteLine("This Fruit is not Available right now");
+//        break;
+//}
+
+//Loops
+//for
+//while
+//do while
+//for in
+//for each
+
+//for (int i = 1; i < 1; i++)
+//{
+//    Console.WriteLine(i + "C#");
+//}
+
+//int num = int.Parse(Console.ReadLine());
+//for (int i = 1; i <= 10; i++)
+//{
+//    Console.WriteLine(num + " x " + i + " = " + num*i);
+//}
+
+//int j = 10;
+//while (j >= 1)
+//{
+//    Console.WriteLine(j + ".NET");
+//    j--;
+//}
+
+//int k = 1;
+//do
+//{
+//    Console.WriteLine(k + "eProject");
+//    k++;
+//}
+//while (k < 1);
+
+//Nested For
+//for (int i = 1; i <= 10; i++)
+//{
+//    for (int j = 1; j <= i; j++)
+//    {
+//        Console.Write("#");
+//    }
+//    Console.WriteLine();
+//}
+
+//for (int i = 10; i >= 1; i--)
+//{
+//    for (int j = 1; j <= i; j++)
+//    {
+//        Console.Write("*");
+//    }
+//    Console.WriteLine();
+//}
+
+//for (int i = 1; i < 10; i = i + 2)
+//{
+//    Console.WriteLine(i);
+//}
+
+//for (int i = 0; i <= 10; i = i + 2)
+//{
+//    Console.WriteLine(i);
+//}
+
+//for (int i = 1; i <= 10; i++)
+//{
+//    if (i % 2 == 0)
+//    {
+//    Console.WriteLine(i);
+//    }
+//}
+
+//for (int i = 1; i <= 10; i++)
+//{
+//    if (i % 2 != 0)
+//    {
+//        Console.WriteLine(i);
+//    }
+//}
+
+//for (int i = 1; i <= 10; i++)
+//{
+//    if (i % 2 == 0)
+//    {
+//        continue;
+//    }
+//        Console.WriteLine(i);
+//}
+
+//for (int i = 1; i <= 50; i++)
+//{
+//    if (i == 31)
+//    {
+//        break;
+//    }
+//    Console.WriteLine(i);
+//}
+
+//Console.WriteLine("The end");
+//int number;
+
+//start:
+//Console.Write("Enter a positive number: ");
+// number = int.Parse(Console.ReadLine());
+
+//if (number <= 0)
+//{
+//    Console.WriteLine("That's not a positive number. Try again.");
+//    goto start; // jumps back to the start label
+//}
+
+//Console.WriteLine("You entered: " + number);

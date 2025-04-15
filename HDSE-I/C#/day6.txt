@@ -1,0 +1,85 @@
+//Day 6
+// Methods/Functions
+
+//built-in method
+//user-defined method
+
+//user-defined
+
+//no parameter - no return
+//void fun1()
+//{
+//    Console.WriteLine("Welcome to no parameter - no return Function");
+//}
+
+////calling
+//fun1();
+
+////parameter - no return
+
+//void fun2(string a)
+//{
+//    Console.WriteLine("Welcome! " + a);
+//}
+
+//fun2("Faraz");
+
+//void fun3(string fname, string lname)
+//{
+//    //Console.WriteLine("Your First Name is " + fname + " And Last name is " + lname);
+//    //Console.WriteLine("Your First Name is {0}{1}", fname + " And Last name is ", lname);
+//    Console.WriteLine($"Your First Name is {fname}  And Last name is  {lname}");
+//}
+
+//fun3("Faraz", "Inam");
+
+////no parameter - return
+//string fun4()
+//{
+//    return "Welcome to no parameter - return Function";
+//}
+
+//Console.WriteLine(fun4());
+
+////string res = fun3();
+////Console.WriteLine(res);
+
+
+////parameter - return
+//string fun5(int num1, int num2)
+//{
+//    return "First Number is: " + num1 + "\nSecond Number is: " + num2 + "\nThe Sum of Two Numbers is: " + (num1 + num2);
+//}
+
+//Console.WriteLine(fun5(5, 9));
+
+
+//COLLECTIONS
+//generic
+//non - generic
+
+// non-generic (ArrayList, Stack, Hashtable, SortedList)
+
+//ArrayList
+ArrayList arList = new ArrayList();
+arList.Add(2);
+arList.Add(4);
+arList.Add("ali");
+arList.Add(3.1f);
+
+//Console.WriteLine(arList[0]);
+//Console.WriteLine(arList[1]);
+//Console.WriteLine(arList[2]);
+//Console.WriteLine(arList[3]);
+
+//Console.WriteLine(arList.Count);
+//Console.WriteLine(arList.Contains("ali"));
+arList.Remove("ali");  
+arList.RemoveAt(2);  //3.1
+
+arList.Insert(1, "aptech");
+
+foreach (var data in arList)
+{
+    Console.WriteLine(data);
+}

@@ -1,0 +1,114 @@
+  //Day 3
+
+  //int a = 5;
+  //int b = 10;
+
+  //Arithmetic Opr 
+  //Console.WriteLine(a + b);
+  //Console.WriteLine(a - b);
+  //Console.WriteLine(a * b);
+  //Console.WriteLine(a / b); //0.5
+  //Console.WriteLine(a % b);  //5
+  //Console.WriteLine(a * b);
+
+
+  //Assignment 
+  //Console.WriteLine(a *= b); // a = a+ b
+  //Console.WriteLine(a);
+  //Console.WriteLine(b);
+
+  //Comparison
+  //Console.WriteLine(a == b);
+  //Console.WriteLine(a >= b);
+  //Console.WriteLine(a <= b);
+  //Console.WriteLine(a != b);
+
+  //Ternary
+  //string res = (a == b) ? "Equal" : "NOT Equal";
+  //  Console.WriteLine(res);
+
+
+  //Inc/dec
+  //int x = 15;
+  //int y = 10;
+
+  //Console.WriteLine(x++); //5
+  //Console.WriteLine(x);  //6
+
+  //Console.WriteLine(++x); //7
+  //Console.WriteLine(x);  //7
+
+  //logical 
+  //Console.WriteLine((x > y) && (y > x));
+  //Console.WriteLine((x > y) || (y > x));
+
+  //Conditional Statement
+  //int age = 19;
+  //bool cnic = false;
+
+  //IF
+  //if ((age >= 18) && (cnic == true))
+  //{
+  //    Console.WriteLine("You are Eligible");
+  //}
+
+  //if else
+  //if ((age >= 18) && (cnic == true))
+  //{
+  //    Console.WriteLine("You are Eligible");
+  //}
+  //else
+  //{
+  //    Console.WriteLine("You are NOT Eligible");
+  //}
+
+
+  ////if else (ladder)
+  //int per = int.Parse(Console.ReadLine());
+
+  //if ((per >= 80 && per <= 100))
+  //{
+  //    Console.WriteLine("A+");
+  //}
+  //else if ((per >= 70) && (per <= 79))
+  //{
+  //    Console.WriteLine("A");
+  //}
+  //else if ((per >= 60) && (per <= 69))
+  //{
+  //    Console.WriteLine("B");
+  //}
+  //else if ((per >= 50) && (per <= 59))
+  //{
+  //    Console.WriteLine("C");
+  //}
+  //else if ((per >= 40) && (per <= 49))
+  //{
+  //    Console.WriteLine("D");
+  //}
+  //else if ((per >= 0) && (per <= 39))
+  //{
+  //    Console.WriteLine("FAIL");
+  //}
+  //else
+  //{
+  //    Console.WriteLine("Please Provide Correct Percentage");
+  //}
+
+  //string fruits = Console.ReadLine();
+  //fruits = fruits.ToLower();
+  //switch (fruits)
+  //{
+  //    case "mango":
+  //        Console.WriteLine("You Selected Mangoes");
+  //        break;
+  //    case "apple":
+  //        Console.WriteLine("You Selected apple");
+  //        break;
+  //    case "strawberry":
+  //        Console.WriteLine("You Selected strawberry");
+  //        break;
+  //    default:
+  //        Console.WriteLine("This Fruit is not Available right now");
+  //        break;
+  //}
