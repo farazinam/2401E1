@@ -1,0 +1,71 @@
+//Day - 9 
+internal class Car
+ {
+     //fields
+     string Name;  //Name = "Mercedeze";
+     string Color;
+     int Price;
+
+     //constructor
+     //public Car(string n, string c, int p)
+     //{
+     //    this.Name = n;
+     //    this.Color = c;
+     //    this.Price = p;
+     //}
+
+     //method
+     //public void ride()
+     //{
+     //    Console.WriteLine($"The Car Runs - and propertioes are {this.Name}  {this.Price}  {this.Color}");
+     //    // Console.WriteLine("The Car Runs - and propertioes are " + name + price + color);
+     //}
+
+     //setData
+     public void setData(string n, string c, int p)
+     {
+         this.Name = n;
+         this.Color = c;
+         this.Price = p;
+     }
+
+     public void getData()
+     {
+         Console.WriteLine($"Name: {this.Name}");
+         Console.WriteLine($"Color: {this.Color}");
+         Console.WriteLine($"Price: {this.Price}");
+     }
+
+     //getData
+     static void Main(string[] args)
+     {
+         Console.WriteLine("Hello, World!");
+
+         Car c1 = new Car();
+         Car c2 = new Car();
+         Car c3 = new Car();
+         Car c4 = new Car();
+         //Console.WriteLine($"The Car Runs - and propertioes are {c.Name}  {c.Price}  {c.Color}");
+
+         //c.ride();
+
+         //c1.setData("Roll Royes", "red", 12345);
+         //c2.setData("BMW", "black", 12345);
+         //c3.setData("Sportage", "white", 12345);
+
+         //c1.getData();
+         //c2.getData();
+         //c3.getData();
+
+         Console.WriteLine("Enter Name:");
+         string cname = Console.ReadLine();
+         Console.WriteLine("Enter Color:");
+         string color = Console.ReadLine();
+         Console.WriteLine("Enter Price:");
+         int price = int.Parse(Console.ReadLine());
+
+         c4.setData(cname, color, price);
+         c4.getData();
+
+     }
+ }

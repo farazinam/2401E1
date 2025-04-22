@@ -1,0 +1,94 @@
+  internal class Calculator
+  {
+      //void add(int a, int b)
+      //{
+      //    int c = a + b;
+      //    Console.WriteLine(c);
+      //}
+
+      //void sub(int a, int b)
+      //{
+      //    int c = a - b;
+      //    Console.WriteLine(c);
+      //}
+
+      //void mul(int a, int b)
+      //{
+      //    int c = a * b;
+      //    Console.WriteLine(c);
+      //}
+
+      //void div(int a, int b)
+      //{
+      //    double c = a / b;
+      //    Console.WriteLine(c);
+      //}
+
+      //void mod(int a, int b)
+      //{
+      //    int c = a % b;
+      //    Console.WriteLine(c);
+      //}
+
+      //add(2,7);
+      static void Main(string[] args)
+      {
+          //Console.WriteLine("Hello, World!");
+
+          ////void add(int a, int b)
+          ////{
+          ////    int c = a + b;
+          ////    Console.WriteLine(c);
+          ////}
+
+          ////add(2,7);
+
+        
+
+
+          //Calculator cl = new Calculator();
+          ////cl.add(2,7);
+
+          //string chk;
+          //do
+          //{
+          //    Console.WriteLine("Enter first Number");
+          //    int num1 = int.Parse(Console.ReadLine());
+
+          //    Console.WriteLine("Enter Operator");
+          //    string opr = Console.ReadLine();
+
+          //    Console.WriteLine("Enter second Number");
+          //    int num2 = int.Parse(Console.ReadLine());
+
+          //    if (opr == "+")
+          //    {
+          //        cl.add(num1, num2);
+          //    }
+          //    else if (opr == "-")
+          //    {
+          //        cl.sub(num1, num2);
+          //    }
+          //    else if (opr == "*")
+          //    {
+          //        cl.mul(num1, num2);
+          //    }
+          //    else if (opr == "/")
+          //    {
+          //        cl.div(num1, num2);
+          //    }
+          //    else if (opr == "%")
+          //    {
+          //        cl.mod(num1, num2);
+          //    }
+          //    else
+          //    {
+          //        Console.WriteLine("Incrorrect Input");
+          //    }
+          //    Console.WriteLine("Do you want to continue? yes/no");
+          //    chk = Console.ReadLine();
+          //    chk = chk.ToLower();
+          //}
+          //while (chk == "yes" | chk == "y");
+      }
+  }

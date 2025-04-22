@@ -1,0 +1,136 @@
+//Day 7 and 8
+//COLLECTIONS
+//generic
+//non - generic
+
+// non-generic (ArrayList, Stack, Hashtable, SortedList)
+
+//ArrayList
+//ArrayList arList = new ArrayList();
+//arList.Add(2);
+//arList.Add(4);
+//arList.Add("ali");
+//arList.Add(3.1f);
+
+//Console.WriteLine(arList[0]);
+//Console.WriteLine(arList[1]);
+//Console.WriteLine(arList[2]);
+//Console.WriteLine(arList[3]);
+
+//Console.WriteLine(arList.Count);
+//Console.WriteLine(arList.Contains("ali"));
+//arList.Remove("ali");  
+//arList.RemoveAt(2);  //3.1
+
+//arList.Insert(1, "aptech");
+
+//foreach (var data in arList)
+//{
+//    Console.WriteLine(data);
+//}
+
+
+//Stack stk = new Stack();
+//stk.Push(2);
+//stk.Push(4);
+//stk.Push("Aptech");
+//stk.Push(6.9f);
+
+//stk.Pop();
+//stk.Pop();
+
+//foreach (var st in stk)
+//{
+//    Console.WriteLine(st);
+//}
+
+//Hashtable htable = new Hashtable();
+//htable.Add("name", "Hussain");
+//htable.Add("age", 22);
+//htable.Add("city", "karachi");
+//htable.Add(2, "two");
+
+////Console.WriteLine(htable["name"]);
+
+//foreach (DictionaryEntry item in htable)
+//{
+//    Console.WriteLine(item.Key + " : " + item.Value);
+//}
+
+
+
+//SortedList slist = new SortedList();
+
+//slist.Add(3, "Bilal");
+//slist.Add(5, "Rizwan");
+//slist.Add(2, "Noman");
+//slist.Add(1, "Adil");
+
+//foreach (DictionaryEntry sl in slist)
+//{
+//    Console.WriteLine(sl.Key + " : " + sl.Value);
+//}
+
+
+
+//generic (list, dueue, stack, dictionary
+
+//List<int> listing = new List<int>();
+//listing.Add(2);
+//listing.Add(4);
+//listing.Add(6);
+//listing.Add(10);
+
+//foreach (var lst in listing)
+//{
+//    Console.WriteLine(lst);
+//}
+
+
+//Stack<string> stdNames = new Stack<string>();
+//stdNames.Push("Hassan");
+//stdNames.Push("Hanzala");
+//stdNames.Push("Ahsan");
+//stdNames.Push("Aqsa");
+//stdNames.Push("Zainab");
+
+////stdNames.Pop();//Zainab
+////stdNames.Pop();//Aqsa
+//               //stdNames.Pop();//Ahsan
+
+//stdNames.Clear();
+
+//foreach (string name in stdNames)
+//{
+//    Console.WriteLine(name);
+//}
+
+
+//FIFO (First In First Out)
+//Queue<string> line = new Queue<string>();
+//line.Enqueue("First");
+//line.Enqueue("Second");
+
+//Console.WriteLine(line.Dequeue()); // First
+
+
+//Dictionary<int, string> students = new Dictionary<int, string>();
+//students.Add(1, "Ali");
+//students.Add(2, "Sara");
+
+////Console.WriteLine(students[1]); // Ali
+
+//foreach (var item in students)
+//{
+//    //Console.WriteLine(item);
+//    string[] test = (item.ToString()).Split(',');
+//    string key = test[0];
+//    string value = test[1];
+//    key = test[0].Trim('['); //[
+//    value = test[1].Trim(']'); //]
+//    Console.WriteLine(key);
+//    Console.WriteLine(value);
+
+//    Console.WriteLine($"The students has key propety:{key} and value property is:{value}");
+//    Console.WriteLine(item);
+//}
