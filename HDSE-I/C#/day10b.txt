@@ -1,0 +1,36 @@
+//Day 10
+//Access Specifiers/Access Modifiers
+
+  public class A
+  {
+      //fields
+      public string pub = "Public Data";
+      private string pri = "Private Data";
+      protected string pro = "Protected Data";
+      internal string inter = "Internal Data";
+
+  }
+  public class Program 
+  {
+
+      static void Main(string[] args)
+      {
+          Console.WriteLine("Hello, World!");
+
+          //Program p = new Program();
+          //Console.WriteLine(p.pub);
+          //Console.WriteLine(p.pri);
+          //Console.WriteLine(p.pro);
+          //Console.WriteLine(p.inter);
+
+          A a = new A();
+
+          //Console.WriteLine(a.pub);
+          //Console.WriteLine(a.pri);
+          //Console.WriteLine(a.pro);
+          //Console.WriteLine(a.inter);
+      }
+  }
+
+
+//use can access these fields(variables) value outside the assembly/namespace by creating another namespace yourself.

@@ -1,0 +1,73 @@
+//Day 10
+//Inheritance
+
+  public class Animal
+  {
+      public void speak()
+      {
+          Console.WriteLine("Animal can Speak - Parent");
+      }
+      
+  }
+
+  public class Mammal : Animal
+  {
+      public void run()
+      {
+          Console.WriteLine("Mannal can Run!");
+      }
+
+  }
+
+  public class Reptiles : Animal
+  {
+      public void rep()
+      {
+          Console.WriteLine("Mannal can Run!");
+      }
+
+  }
+  public class Cat : Mammal
+  {
+      public void meow()
+      {
+      Console.WriteLine("Cat can Shout");
+      }
+  }
+
+  public class Dog : Mammal
+  {
+      public void bark()
+      {
+          Console.WriteLine("Dog can Bark - Child");
+      }
+      static void Main(string[] args)
+      {
+          Console.WriteLine("Hello, World!");
+
+          Dog dg = new Dog();
+          dg.bark();  //grandChild
+          dg.run();  //Parent
+          dg.speak();  // Grand Parent
+
+          Mammal mm = new Mammal();
+          //mm.bark();
+          mm.run();
+          mm.speak();
+
+          Animal an = new Animal();
+          an.speak();
+          //an.run();
+          //an.bark();
+
+          Cat c = new Cat();
+          c.run();
+          c.meow();
+          c.speak();
+          //c.bark();
+          //c.rep();
+
+      }
+
+      
+  }
