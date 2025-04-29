@@ -2,40 +2,54 @@
 //polymorphism
 
   public class Program 
-  {
-      //method overloading
-      public void abc()
-      {
-          Console.WriteLine("Hello, I am simple method");
-      }
+ {
+     //method overloading
+     public virtual void abc()
+     {
+         Console.WriteLine("Hello, I am OverLoading");
+     }
 
-      public void abc(string a)
-      {
-          Console.WriteLine($"Hello, I am {a}");
-      }
+     public void abc(string a)
+     {
+         Console.WriteLine($"Hello, I am {a}");
+     }
 
-      public void abc(int a)
-      {
-          Console.WriteLine($"Hello, I am {a}");
-      }
-  }
+     public void abc(int a)
+     {
+         Console.WriteLine($"Hello, I am {a}");
+     }
 
-  public class A : Program
-  {
-      public void abc()
-      {
-          Console.WriteLine("Hello, I am Over Riding");
-      }
-      static void Main(string[] args)
-      {
-          Console.WriteLine("Hello, World!");
+     public int abc(int a , int b)
+     {
+         int c = a + b;
+         return c;
+     }
 
-          Program p = new Program();
-          p.abc();
-          p.abc("Faraz");
-          p.abc(123);
+     public string abc(string a, string b)
+     {
+         string c = a + b;
+        return c ;
+     }
+ }
 
-          A a = new A();
-          a.abc();
-      }
-  }
+ public class A : Program
+ {
+     //method overriding
+     public override void abc()
+     {
+         Console.WriteLine("Hello, I am Over Riding");
+     }
+     static void Main(string[] args)
+     {
+         Console.WriteLine("Hello, World!");
+
+         Program p = new Program();
+         p.abc();
+         p.abc("Faraz");
+         p.abc(123);
+         Console.WriteLine(p.abc(3, 7));
+
+         Program overRid = new A();
+         overRid.abc();
+     }
+ }

@@ -1,0 +1,110 @@
+// Encapsulation
+
+//Example 1
+
+//public class A
+//{
+//    private int atmPin;
+
+//    public void get()
+//    {
+//        Console.WriteLine($"ATM PIN is {atmPin}");
+//    }
+
+//    public void set(int ap)
+//    {
+//        atmPin = ap;
+//    }
+//}
+
+//public class B
+//{
+//    static void Main(string[] args)
+//    {
+//        Console.WriteLine("Hello, World!");
+//        A a = new A();
+//        a.set(101);
+//        a.get();
+//    }
+//}
+
+// ----------------------------------------------------------------------------
+
+//Example 2
+public class BankAccount
+{
+    private string accountNumber;
+    private decimal balance;
+    private string ownerName;
+
+    public BankAccount(string accountNumber, decimal balance, string ownerName)
+    {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+        this.ownerName = ownerName;
+    }
+
+    public string GetAccountNumber()
+    {
+        return accountNumber;
+    }
+
+    public decimal GetBalance()
+    {
+        return balance;
+    }
+
+    public string GetOwnerName()
+    {
+        return ownerName;
+    }
+
+    public void Deposit(decimal amount)
+    {
+        if (amount > 0)
+        {
+            balance += amount;
+            Console.WriteLine($"{amount} deposited successfully. New balance: {balance}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid deposit amount.");
+        }
+    }
+
+    public void Withdraw(decimal amount)
+    {
+        if (amount > 0 && balance >= amount)
+        {
+            balance -= amount;
+            Console.WriteLine($"{amount} withdrawn successfully. New balance: {balance}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid withdrawal amount or insufficient balance.");
+        }
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        BankAccount account = new BankAccount("1234", 2000.00m, "Ali");
+
+        //Console.WriteLine($"Account Number: {account.accountNumber}"); //cant access variable directly due to its privacy
+        //Console.WriteLine($"Balance: {account.balance}"); //cant access variable directly due to its privacy
+        //Console.WriteLine($"Owner Name: {account.ownerName}"); //cant access variable directly due to its privacy
+
+        Console.WriteLine($"Account Number: {account.GetAccountNumber()}");
+        Console.WriteLine($"Balance: {account.GetBalance()}");
+        Console.WriteLine($"Owner Name: {account.GetOwnerName()}");
+
+        account.Deposit(1000.00m);
+        account.Withdraw(500.00m);
+        account.Withdraw(3000.00m); // This will fail due to insufficient balance
+
+    }
+}
