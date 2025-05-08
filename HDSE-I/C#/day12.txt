@@ -1,0 +1,157 @@
+
+    //Abstraction without Abstract Class
+    //public class Abstraction
+    //{
+    //    //fields
+    //    public int id;
+    //    public int salary;
+    //    public float netPay;
+    //    public float grossPay;
+    //    public float textDeduc = 0.1f;
+
+    //    //constructor
+    //    public Abstraction()
+    //    {
+
+    //    }
+    //    public Abstraction(int id, int salary, int gPay)
+    //    {
+    //        this.id = id;
+    //        this.grossPay = gPay;
+    //        this.salary = salary;
+    //    }
+
+    //    private void calculate()
+    //    {
+    //        if (grossPay > 50000)
+    //        {
+    //            this.netPay = grossPay - (grossPay * textDeduc);
+    //            Console.WriteLine("Your Net Pay is " + netPay);
+    //        }
+    //        else
+    //        {
+    //            Console.WriteLine("Your Net Pay is " + grossPay);
+    //        }
+    //    }
+
+    //    public void set()
+    //    {
+    //        Console.WriteLine("-------- Salary ------------");
+    //        Console.WriteLine("Your id is " + id);
+    //        Console.WriteLine("Your Salary is " + salary);
+    //        Console.WriteLine("Your Gross Pay is " + grossPay);
+    //        calculate();
+    //    }
+    //}
+
+
+    //Abstraction with Abstract Class
+    //public abstract class Animal
+    //{
+    //    public void abc()
+    //    {
+    //        Console.WriteLine("Hello Abstract Class");
+    //    }
+
+    //    public abstract void xyz();
+
+    //}
+
+
+    //public class Cat : Animal
+    //{
+    //    public override void xyz() 
+    //    {
+    //        Console.WriteLine("Hello Abstract class, i am making a Noice like that meowwww");
+    //    }
+    //}
+
+
+
+//Example 2
+public abstract class Person
+{
+    public int id;
+    public string name;
+    public int age;
+    public string contact;
+
+    public abstract void show();
+    //public void abc()
+    //{
+
+    //}
+}
+
+public class Student : Person
+{
+
+    public int fees;
+    public int rollno;
+
+    public override void show()
+    {
+        Console.WriteLine("------- Student Details ----------");
+        Console.WriteLine("Student ID is : " + id);
+        Console.WriteLine("Student NMAE is : " + name);
+        Console.WriteLine("Student age is : " + age);
+        Console.WriteLine("Student CONTACT is : " + contact);
+        Console.WriteLine("Student FEES is : " + fees);
+        Console.WriteLine("Student ROLL NO. is : " + rollno);
+    }
+}
+
+public class Teacher : Person
+{
+    public int salary;
+    public int experience;
+
+    public override void show()
+    {
+        Console.WriteLine("------- Student Details ----------");
+        Console.WriteLine("Teacher ID is : " + id);
+        Console.WriteLine("Teacher NMAE is : " + name);
+        Console.WriteLine("Teacher age is : " + age);
+        Console.WriteLine("Teacher CONTACT is : " + contact);
+        Console.WriteLine("Teacher SALARY is : " + salary);
+        Console.WriteLine("Teacher EXPERIENCE is : " + experience);
+    }
+}
+
+
+
+
+    public class abc
+    {
+        static void Main()
+        {
+            Abstraction abs = new Abstraction(123, 45000, 60000);
+            abs.set();
+
+            Animal an = new Animal();  // An abstract class cannot be instantiated.
+            Cat c = new Cat();
+            c.xyz();
+            c.abc();
+
+
+            Student s = new Student();
+            s.id = 1;
+            s.name = "Fouzan";
+            s.age = 21;
+            s.contact = "03202356851";
+            s.fees = 7500;
+            s.rollno = 12;
+
+
+            Teacher t = new Teacher();
+            t.id = 101;
+            t.name = "Haris";
+            t.age = 24;
+            t.contact = "03232526249";
+            t.experience = 3;
+            t.salary = 25000;
+
+            s.show();
+            t.show();
+        }
+    }
