@@ -1,0 +1,119 @@
+//day 14 
+//Exception Handling 
+
+public class MyException : Exception
+ {
+     public MyException(string message) : base (message) { }
+ }
+
+ public class InvalidAgeException : Exception
+ {
+      public InvalidAgeException(string message) : base(message) { }
+ }
+
+
+ internal class Program
+ {
+     static void Main(string[] args)
+     {
+         Console.WriteLine("Hello, World!");
+
+         //Without Label
+         //try
+         //{
+         //    int a = 10;
+         //    int b = 0;
+         //    int result = a / b; // Will throw DivideByZeroException
+         //}
+         //catch
+         //{
+         //    Console.WriteLine("Can't Divide by zero - Exception occurred (without label).\n");
+         //}
+
+         // ------------------------------------------------
+
+         //With Label
+         //try
+         //{
+         //    int a = 10;
+         //    int b = 0;
+         //    int result = a / b; // Will throw DivideByZeroException
+         //}
+         ////catch (Exception ex)
+         //catch (DivideByZeroException ex)
+         //{
+         //    Console.WriteLine(ex.Message + " Error ");
+         //}
+
+         // ------------------------------------------------
+
+         //Multiple Exception
+         //try
+         //{
+         //    int[] a = new int[3];
+         //    a[0] = 4;
+         //    a[4] = 9;
+         //}
+         //catch(IndexOutOfRangeException ex)
+         //{
+         //    Console.WriteLine(ex.Message);
+         //}
+         //catch (DivideByZeroException ex)
+         //{
+         //    Console.WriteLine(ex.Message);
+         //}
+
+         // ------------------------------------------------
+
+         //Nested Exception
+         //try
+         //{
+         //    try
+         //    {
+         //        File.ReadAllText("abc.txt");
+         //    }
+         //    catch(FileNotFoundException ex)
+         //    {
+         //        Console.WriteLine(ex.Message);
+         //        throw new MyException("Something went wrong!! ");  // custom Exception
+         //    }
+
+         //}
+         //catch(MyException ex)
+         //{
+         //    Console.WriteLine(ex.Message);
+         //}
+
+
+         // Userdefined exception
+         try
+         {
+             // Step 2: Get user input for age
+             Console.WriteLine("Enter your age:");
+             int age = int.Parse(Console.ReadLine());
+
+             // Step 3: Check if age is valid
+             if (age < 18)
+             {
+                 // Throw the custom exception if age is less than 18
+                 throw new InvalidAgeException("Age must be 18 or older to proceed.");
+             }
+
+             Console.WriteLine("You are eligible!");
+         }
+
+         catch (InvalidAgeException ex)
+         {
+             // Step 4: Catch the custom exception and display the error message
+             Console.WriteLine("Error: " + ex.Message);
+         }
+
+         catch (Exception ex)
+         {
+             // Catch any other exceptions (for example, input format errors)
+             Console.WriteLine("Unexpected error: " + ex.Message);
+         }
+
+
+     }
+ }

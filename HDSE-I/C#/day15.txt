@@ -1,0 +1,56 @@
+//day 15
+Properties
+
+public class prop
+{
+    private int id;
+    private string name = "Ali";
+    private int age;
+    private string city;
+
+    //property
+
+    //REad-Write both
+    public int ID
+    {
+        get { return id; }
+        set { this.id = value; }
+    }
+
+    //Read Only
+    public string Name
+    {
+        get { return name; }
+    }
+
+    //Write Only
+    public int Age {
+        set { this.age = value; }
+    }
+
+    //Auto-Implemented Property
+    public string City
+    {
+        get; set;
+    }
+}
+public class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello, World!");
+
+        prop p = new prop();
+        p.ID = 1;
+        Console.WriteLine(p.ID);
+
+        /////p.Name = "Test";  -- Error
+        Console.WriteLine(p.Name);
+
+        p.Age = 20;
+        ///////Console.WriteLine(p.Age);   -- Error
+
+        p.City = "Karachi";
+        Console.WriteLine(p.City);
+    }
+}

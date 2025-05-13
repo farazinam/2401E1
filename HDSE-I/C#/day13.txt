@@ -1,0 +1,168 @@
+//Day 13
+//Interfaces
+
+
+//Ex 1
+    public interface myInterface
+    {
+        void start();
+        void stop();
+
+        //void running()     // can't provide body
+        //{
+        //    Console.WriteLine("Incorrect --- ");
+        //}
+    }
+
+    public class Inherited : myInterface
+        {
+        public void start()
+        {
+            Console.WriteLine("Starting.... - Interface");
+        }
+
+        public void stop()
+        {
+            Console.WriteLine("Stopping.... - Interface");
+        }
+    }
+
+// ------------------------------------------------------------------
+
+
+//Ex 2
+  public class Car : myInterface
+  {
+      public void start()
+      {
+          Console.WriteLine("Car is running .... ");
+      }
+
+      public void stop()
+      {
+          Console.WriteLine("Car is Stopping .......");
+      }
+  }
+
+  public class Bike : myInterface
+  {
+      public void start()
+      {
+          Console.WriteLine("Bike is running .... ");
+      }
+
+      public void stop()
+      {
+          Console.WriteLine("Bike is Stopping .......");
+      }
+  }
+
+
+// ----------------------------------------------------------------------------
+
+
+//Explicit Interface
+
+ interface IPrinter
+ {
+     void print();
+ }
+
+ interface IScanner
+ {
+     void print();
+ }
+
+ public class showingDetails : IPrinter, IScanner
+ {
+     void IPrinter.print()
+     {
+         Console.WriteLine("Documnet is Printing");
+     }
+
+     void IScanner.print()
+     {
+         Console.WriteLine("Documnet is Scanning");
+     }
+ }
+
+
+// ----------------------------------------------------------------------------
+
+//Interface inheritance
+
+  internal class InterfaceInheritance
+  {
+      interface chapter1
+      {
+          void output1();
+      }
+
+      interface chapter2
+      {
+          void output2();
+      }
+
+      interface chapter3 : chapter1, chapter2
+      {
+          void output3();
+      }
+
+      public class GivingABody : chapter3
+      {
+          public void output1 ()
+          {
+              Console.WriteLine("Printing details of Interface 1");
+          }
+
+          public void output2()
+          {
+              Console.WriteLine("Printing details of Interface 2");
+          }
+
+          public void output3()
+          {
+              Console.WriteLine("Printing details of Interface 3");
+          }
+      }
+  }
+
+
+// -------------------------------- C A L L I N G in Main --------------------------------------------
+
+
+ public class Program
+ {
+     static void Main(string[] args)
+     {
+         Console.WriteLine("Hello, World!");
+         //Inherited i = new Inherited();
+         //i.start();
+         //i.stop();
+         //i.running();
+
+         //Car c = new Car();
+         //c.start();
+         //c.stop();
+
+         //Bike b = new Bike();
+         //b.start();
+         //b.stop();
+
+         showingDetails sd = new showingDetails();
+         //((IPrinter)sd).print();
+         //((IScanner)sd).print();
+
+         //IPrinter printer = sd;
+         //IScanner scanner = sd;
+         //printer.print();
+         //scanner.print();
+
+
+         GivingABody gb = new GivingABody();
+         gb.output1();
+         gb.output2();
+         gb.output3();
+     }
+ }
+
