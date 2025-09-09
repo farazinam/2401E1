@@ -5,6 +5,7 @@ int calculate() {
 }
 
 // --------- D A Y - 1 ----------------
+
 // void main(List<String> args) {
 //   print("Hello Dart!");
 //   var a = "Ali";
@@ -45,18 +46,20 @@ void main() {
   // print(info);
   // print(s);
 
-// stdout.write("Enter Your Name");
-//   var name = stdin.readLineSync();
-//   stdout.write("Your Name is : $name");
+stdout.write("Enter Your Name");
+  var name = stdin.readLineSync();
+  stdout.write("Your Name is : $name");
 
-// stdout.write("Enter Your Age");
-//   var age = int.parse(stdin.readLineSync()!);
-//   stdout.write("Your Age is : $age");
+stdout.write("Enter Your Age");
+  var age = int.parse(stdin.readLineSync()!);
+  stdout.write("Your Age is : $age");
 
-var name = "Ali";
-var age = 22;
+  print(name is String);
+
+// var name = "Ali";
+// var age = 22;
 
 // stdout.write("My Name is $name AND age is $age");
-print("My Name is : $name And Age is ${age + 1}");
+// print("My Name is : $name And Age is ${age + 1}");
 }
 
