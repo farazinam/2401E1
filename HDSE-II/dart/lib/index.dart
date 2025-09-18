@@ -205,20 +205,124 @@ int calculate() {
 
 
    // ---------------- O O P ----------------------
-    class Car{
-      var brand = "";
-     var model = "";
+  //   class Car{
+  //     var brand = "";
+  //    var model = "";
 
-     Car(this.brand, this.model);
+  //    Car(this.brand, this.model);
 
-     void action(){
-      print("My Car brand is $brand and Model is $model");
-     }
-    }
+  //    void action(){
+  //     print("My Car brand is $brand and Model is $model");
+  //    }
+  //   }
 
-   void main(){
-    Car obj = Car("Toyota", "2024");
-    // obj.brand = "ToyoTa";
-    // obj.model = "2024";
-    obj.action();
-   }
+  //  void main(){
+  //   Car obj = Car("Toyota", "2024");
+  //   // obj.brand = "ToyoTa";
+  //   // obj.model = "2024";
+  //   obj.action();
+  //  }
+
+
+
+  // --------- D A Y - 5 ----------------
+
+  // Inheritance
+  // class Animal{
+  //   String animalname = '';
+
+  //   void run(){
+  //     print("Animal $animalname can run!");
+  //   }
+  // }
+
+  // class Cat extends Animal{
+  //   String catname = '';
+
+  //   void makeSound(){
+  //     print("Animal $catname can Speak like Meowww!");
+  //   }
+  // }
+
+
+  // void main(){
+  //   Animal a = Animal();
+  //   a.animalname = "Dog";
+  //   a.run();
+    
+  //   Cat c = Cat();
+  //   c.catname = "Mishi";
+  //   c.makeSound();
+  //   c.animalname = "Pet";
+  //   c.run();
+  // }
+
+    // Polymorphism
+  //     class Animal{
+
+  //   void run(){
+  //     print("Animal can run!");
+  //   }
+  // }
+
+  // class Cat extends Animal{
+  //   @override
+  //   void run(){
+  //     print("Animal is running!");
+  //   }
+  // }
+
+  // void main(){
+  //   Animal a = Animal();
+  //   a.run();  // Animal can run
+
+  //   Cat c = Cat();
+  //   c.run();  // Animal is running
+  // }
+    
+
+  //Encapsulation
+  // class Bank{
+  // num _balamount = 150;
+
+  //   num get balamount => _balamount;
+
+  //   set dep(num amount){
+  //     if(amount > 0){
+  //       _balamount += amount;
+  //     }
+  //   }
+  // }
+
+  // void main(){
+  //   Bank b = Bank();
+  //   b.dep = 500;
+  //   print(b.balamount);
+  // }
+
+
+// --------- D A Y - 6 ----------------
+
+
+void main(){
+
+//Synchronuous
+
+// print("Start Program");
+// int sum = 0;
+// for(var i = 0; i < 10000000000; i++){
+//   sum += i;
+// }
+// print("Total is $sum");
+
+// print("End Program Program");
+
+Future<void> data() async{
+  await Future.delayed(Duration(seconds: 5));
+  print("Task 2 Executed");
+}
+
+print("Task 1 Executed");
+data();
+print("Task 3 Executed");
+}
