@@ -302,11 +302,11 @@ int calculate() {
 
 
 // --------- D A Y - 6 ----------------
+//Bank App Program Created on another files (hbl.dart, bank.dart)
 
+// void main(){
 
-void main(){
-
-//Synchronuous
+////Synchronuous
 
 // print("Start Program");
 // int sum = 0;
@@ -317,12 +317,15 @@ void main(){
 
 // print("End Program Program");
 
-Future<void> data() async{
-  await Future.delayed(Duration(seconds: 5));
-  print("Task 2 Executed");
-}
 
-print("Task 1 Executed");
-data();
-print("Task 3 Executed");
-}
+////Synchronuous
+
+// Future<void> data() async{
+//   await Future.delayed(Duration(seconds: 5));
+//   print("Task 2 Executed");
+// }
+
+// print("Task 1 Executed");
+// data();
+// print("Task 3 Executed");
+// }
