@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/callLog.dart';
 import 'package:mobileapp/form.dart';
+import 'package:mobileapp/gridview.dart';
 import 'package:mobileapp/image.dart';
+import 'package:mobileapp/tabbar.dart';
 import 'navbar.dart';
 import 'firstpage.dart';
 
@@ -24,7 +26,10 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: CallLog(),
+      // home: CallLog(),
+      // home: FormElements(),
+      // home: GridViewExample(),
+      home: TabBarExample(),
     );
   }
 }
