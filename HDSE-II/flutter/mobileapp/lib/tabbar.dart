@@ -23,13 +23,13 @@ class TabBarExample extends StatelessWidget {
           children: 
           [
             Center(
-              child: Text("INBOX DATA"),
+              child: Text("📥 INBOX DATA"),
             ),
             Center(
-              child: Text("FAVORITE DATA"),
+              child: Text("♥ FAVORITE DATA"),
             ),
             Center(
-              child: Text("UNREAD DATA"),
+              child: Text("✉ UNREAD DATA"),
             ),
           ]
           ),

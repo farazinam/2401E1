@@ -3,6 +3,8 @@ import 'package:mobileapp/callLog.dart';
 import 'package:mobileapp/form.dart';
 import 'package:mobileapp/gridview.dart';
 import 'package:mobileapp/image.dart';
+import 'package:mobileapp/popups.dart';
+import 'package:mobileapp/product.dart';
 import 'package:mobileapp/tabbar.dart';
 import 'navbar.dart';
 import 'firstpage.dart';
@@ -29,7 +31,9 @@ class MyApp extends StatelessWidget {
       // home: CallLog(),
       // home: FormElements(),
       // home: GridViewExample(),
-      home: TabBarExample(),
+      // home: TabBarExample(),
+      // home: Products(),
+      home: PopUps(),
     );
   }
 }
