@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/callLog.dart';
+import 'package:mobileapp/dynamicList.dart';
 import 'package:mobileapp/form.dart';
 import 'package:mobileapp/gridview.dart';
 import 'package:mobileapp/image.dart';
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
       // home: GridViewExample(),
       // home: TabBarExample(),
       // home: Products(),
-      home: PopUps(),
+      // home: PopUps(),
+      home: DynamicList(),
     );
   }
 }
