@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+// import 'package:flutter/rendering.dart';
+
+import 'package:form_field_validator/form_field_validator.dart';
+
+import 'package:get/get_connect/connect.dart';
 
 class FormElements extends StatefulWidget {
   const FormElements({super.key});
+
 
   @override
   State<FormElements> createState() => _FormElementsState();
 }
 
 class _FormElementsState extends State<FormElements> {
+
+  GlobalKey<FormState> _FKey = GlobalKey<FormState>();
+
   var gen = "Gender";
   // var _course = false;
 
@@ -26,6 +34,7 @@ class _FormElementsState extends State<FormElements> {
         // margin: EdgeInsets.all(50),
         // margin: EdgeInsets.only(top: 20, right: 30, bottom: 40, left: 50),
         child: Form(
+          key: _FKey,
           child: Column(
             children: [
               SizedBox(
@@ -50,6 +59,14 @@ class _FormElementsState extends State<FormElements> {
               SizedBox(
                 width: 350,
                 child: TextFormField(
+                  maxLength: 7,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                 validator: MultiValidator(
+                  [
+                    RequiredValidator(errorText: "Required"),
+                    EmailValidator(errorText: "Incorrect Email")
+                  ]
+                 ).call,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       // borderSide: BorderSide(color: Colors.green)
@@ -67,6 +84,14 @@ class _FormElementsState extends State<FormElements> {
               Container(
                 width: 350,
                 child: TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                 validator: MultiValidator(
+                  [
+                    RequiredValidator(errorText: "Required"),
+                    PatternValidator(r'^[a-z]+$', errorText: "Incorrect")
+                  ]
+                 ).call,
+                  maxLength: 10,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       // borderSide: BorderSide(color: Colors.green)
@@ -154,7 +179,9 @@ class _FormElementsState extends State<FormElements> {
                   ),
 
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _FKey.currentState?.validate();
+                },
                 child: Icon(Icons.thumb_up),
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(250, 35),

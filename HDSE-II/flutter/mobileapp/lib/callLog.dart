@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CallLog extends StatelessWidget {
   const CallLog({super.key});
@@ -8,13 +9,18 @@ class CallLog extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Call Log", style: TextStyle(color: Colors.white, fontSize: 30),),
-        leading: Icon(Icons.accessibility_new,  color: Colors.white,),
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pop(context);
+          }, icon: Icon(Icons.arrow_back)),
         centerTitle: true,
         backgroundColor: Colors.green,
         actions: [
           Row(
             children: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.login),  color: Colors.white,),
+              IconButton(onPressed: () {
+                Get.back();
+              }, icon: Icon(Icons.arrow_back),  color: Colors.white,),
               IconButton(onPressed: () {}, icon: Icon(Icons.phone),  color: Colors.white,),
               IconButton(onPressed: () {}, icon: Icon(Icons.more_vert), color: Colors.white,),
             ],

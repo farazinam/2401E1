@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobileapp/callLog.dart';
 
 class Products extends StatelessWidget {
@@ -203,7 +204,9 @@ class Products extends StatelessWidget {
                           child: Text("Add To Cart"),
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(CallLog());
+                          },
                           child: Text("Buy Now"),
                         ),
                       ],
