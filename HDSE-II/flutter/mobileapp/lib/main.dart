@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapp/CRUD/create.dart';
+import 'package:mobileapp/CRUD/read.dart';
 import 'package:mobileapp/callLog.dart';
 import 'package:mobileapp/dynamicList.dart';
 import 'package:mobileapp/form.dart';
@@ -55,7 +56,8 @@ class MyApp extends StatelessWidget {
       // home: DynamicList(),
       // home: TableExample()
 
-      home: CreateExample()
+      // home: CreateExample()
+      home: ReadExample()
     );
   }
 }
