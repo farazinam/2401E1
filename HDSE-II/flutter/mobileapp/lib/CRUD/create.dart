@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:mobileapp/CRUD/read.dart';
 
 class CreateExample extends StatefulWidget {
   const CreateExample({super.key});
@@ -32,8 +33,13 @@ class _CreateExampleState extends State<CreateExample> {
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Record Inserted Successfully!")),
+        SnackBar(content: Text("Record Inserted Successfully!"),
+        backgroundColor: Colors.green,),
       );
+
+      Navigator.push(context, MaterialPageRoute(builder: (context){
+        return ReadExample();
+      }));
 
       }
 
