@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/Auth/signup.dart';
 import 'package:mobileapp/CRUD/create.dart';
 import 'package:mobileapp/CRUD/read.dart';
 import 'package:mobileapp/callLog.dart';
@@ -57,7 +58,9 @@ class MyApp extends StatelessWidget {
       // home: TableExample()
 
       // home: CreateExample()
-      home: ReadExample()
+      // home: ReadExample()
+
+      home: SignUpScreen(),
     );
   }
 }

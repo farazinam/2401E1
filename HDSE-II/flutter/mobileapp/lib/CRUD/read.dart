@@ -32,19 +32,19 @@ class _ReadExampleState extends State<ReadExample> {
       body: StreamBuilder<QuerySnapshot>(
         stream: pro.snapshots(),
         builder: (context, snapshot) {
-          // if (snapshot.hasError) {
-          //   return const Center(child: Text('Something went wrong'));
-          // }
+          if (snapshot.hasError) {
+            return const Center(child: Text('Something went wrong'));
+          }
 
-          // if (snapshot.connectionState == ConnectionState.waiting) {
-          //   return const Center(child: CircularProgressIndicator());
-          // }
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
           final catList = snapshot.data!.docs;
 
-          // if (catList.isEmpty) {
-          //   return const Center(child: Text('No Category found'));
-          // }
+          if (catList.isEmpty) {
+            return const Center(child: Text('No Category found'));
+          }
 
           return ListView.builder(
             itemCount: catList.length,
