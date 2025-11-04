@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/Auth/signin.dart';
 import 'package:mobileapp/Auth/signup.dart';
 import 'package:mobileapp/CRUD/create.dart';
 import 'package:mobileapp/CRUD/read.dart';
@@ -60,7 +61,7 @@ class MyApp extends StatelessWidget {
       // home: CreateExample()
       // home: ReadExample()
 
-      home: SignUpScreen(),
+      home: SignInScreen(),
     );
   }
 }

@@ -10,43 +10,86 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
-
-  final CollectionReference users = FirebaseFirestore.instance.collection('users');
+  final CollectionReference users = FirebaseFirestore.instance.collection(
+    'users',
+  );
 
   final TextEditingController unController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   User? userExist = FirebaseAuth.instance.currentUser;
 
-  Future<void> signUpFn() async{
+  Future<void> signUpFn() async {
     var inputUn = unController.text.trim();
     var inpputEmail = emailController.text.trim();
     var inputPass = passwordController.text.trim();
     var inputCmPass = confirmPasswordController.text.trim();
 
-    if(inputPass == inputCmPass){
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: inpputEmail,
-        password: inputPass).then((value) =>{
-          print("User created"),
-          users.doc(userExist!.uid).set({
-            'username' : inputUn,
-            'email' : inpputEmail,
-            'createdAt' : DateTime.now(),
-            'uid' : userExist!.uid,
-          }),
-            print('Data Added')
-        });
+    if (inputPass == inputCmPass) {
+      try {
+        await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+              email: inpputEmail,
+              password: inputPass,
+            )
+            .then(
+              (value) => {
+                print("User created"),
+                users.doc(userExist!.uid).set({
+                  'username': inputUn,
+                  'email': inpputEmail,
+                  'createdAt': DateTime.now(),
+                  'uid': userExist!.uid,
+                }),
+                print('Data Added'),
+              },
+            );
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Account Created"),
-          backgroundColor: Colors.green,)
+          SnackBar(
+            content: Text("Account Created"),
+            backgroundColor: Colors.green,
+          ),
         );
-  }
-  }
+        Navigator.pop(context);
+      } on FirebaseAuthException catch (e) {
+        String errorMsg;
+        switch (e.code) {
+          case 'email-already-in-use':
+            errorMsg = 'Email ALreday Registered';
+            break;
 
+          case 'invalid-email':
+            errorMsg = 'Plesae Provide Correct Email';
+            break;
+
+          case 'weak-password':
+            errorMsg = 'Weak Password';
+            break;
+
+          default:
+            errorMsg = 'Something went wrong, please try again';
+            break;
+        }
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(errorMsg),
+        duration: Duration(seconds: 2),
+        backgroundColor: Colors.red));
+
+      }
+        // catch(e){
+        //   print("Error : $e");
+        //    ScaffoldMessenger.of(
+        //   context,
+        // ).showSnackBar(SnackBar(content: Text("Please Try Again"),
+        // duration: Duration(seconds: 2),
+        // backgroundColor: Colors.red));
+        // }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
