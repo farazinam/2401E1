@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class DynamicList extends StatefulWidget {
@@ -48,6 +49,12 @@ class _DynamicListState extends State<DynamicList> {
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
         centerTitle: true,
+        actions: [
+          IconButton(onPressed: (){
+            FirebaseAuth.instance.signOut();
+            Navigator.pushNamed(context, '/signin');
+          }, icon: Icon(Icons.logout))
+        ],
       ),
       body: ListView.builder(
         itemCount: car.length,

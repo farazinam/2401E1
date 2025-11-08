@@ -1,19 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileapp/Auth/signin.dart';
 import 'package:mobileapp/Auth/signup.dart';
-import 'package:mobileapp/CRUD/create.dart';
-import 'package:mobileapp/CRUD/read.dart';
-import 'package:mobileapp/callLog.dart';
 import 'package:mobileapp/dynamicList.dart';
-import 'package:mobileapp/form.dart';
-import 'package:mobileapp/gridview.dart';
-import 'package:mobileapp/image.dart';
-import 'package:mobileapp/popups.dart';
-import 'package:mobileapp/product.dart';
-import 'package:mobileapp/tabbar.dart';
-import 'package:mobileapp/table.dart';
-import 'navbar.dart';
-import 'firstpage.dart';
+import 'package:mobileapp/splashscreen.dart';
 
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
@@ -40,7 +30,21 @@ Future<void> main() async{
 );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  User? user;
+
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+     user = FirebaseAuth.instance.currentUser;
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -49,19 +53,14 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      // home: CallLog(),
-      // home: FormElements(),
-      // home: GridViewExample(),
-      // home: TabBarExample(),
-      // home: Products(),
-      // home: PopUps(),
-      // home: DynamicList(),
-      // home: TableExample()
 
-      // home: CreateExample()
-      // home: ReadExample()
+      home: user != null ? DynamicList() : SplashScreen(),
+      // home: const SplashScreen(),
 
-      home: SignInScreen(),
+      routes: {
+      '/signin' : (context) => SignInScreen(),
+      '/signup' : (context) => SignUpScreen(),
+      }
     );
   }
 }

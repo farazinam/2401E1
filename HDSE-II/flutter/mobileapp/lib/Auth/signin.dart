@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mobileapp/Auth/forgetpassword.dart';
 import 'package:mobileapp/Auth/signup.dart';
 import 'package:mobileapp/callLog.dart';
+import 'package:mobileapp/dynamicList.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -27,11 +29,12 @@ class _SignInScreenState extends State<SignInScreen> {
   //   final InputPassword = emailController.text.trim();
 
   //   try{
-  //   final User? userExist = 
-  //   (await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //   final userExist = 
+  //   await FirebaseAuth.instance.signInWithEmailAndPassword(
   //     email: InputEmail, 
-  //     password: InputPassword)).user;
-  //     if(userExist != null){
+  //     password: InputPassword);
+  //     final u = userExist.user;
+  //     if(u != null){
   //       Navigator.push(context, MaterialPageRoute(builder: (context){
   //         return CallLog();
   //       }));
@@ -40,7 +43,7 @@ class _SignInScreenState extends State<SignInScreen> {
   // catch (e){
   //   print("Error $e");
   // }
-    // }
+  //   }
 
 // Proper and Correct
      Future<void> signInFn() async {
@@ -69,7 +72,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const CallLog()),
+          MaterialPageRoute(builder: (context) => const DynamicList()),
         );
       }
     } on FirebaseAuthException catch (e) {
@@ -121,7 +124,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Icon(Icons.login, size: 100, color: Colors.blue),
               ),
               Text(
-                "Sign Up",
+                "Sign In",
                 style: TextStyle(fontSize: 30, color: Colors.blue),
               ),
               SizedBox(height: 20),
@@ -174,6 +177,14 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ],
               ),
+               TextButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return ForgetPasswordScreen();
+                      }));
+                    },
+                    child: Text("Forget Password"),
+                  ),
             ],
           ),
         ),
