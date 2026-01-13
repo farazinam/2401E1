@@ -3,8 +3,22 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
+
+const t = createTheme({
+  palette:{
+    primary:{
+      main : "#556677"
+    }
+  }
+})
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <ThemeProvider theme={t}>
+      <CssBaseline />
     <App />
+    </ThemeProvider>
   </StrictMode>,
 )

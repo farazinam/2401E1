@@ -3,6 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Card from './Components/card'
+import axios from 'axios';
+
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 
 //-------------- Day 1 ----------------
@@ -234,14 +238,14 @@ function App3(){
 
 // ----- Fetch data - API ----
 function FetchData(){
-  const [user, setUser] = useState([]);
+  const [users, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() =>{
-    fetch("https://jsonplaceholder.typicode.com/users")
-    .then((res)=> res.json())
-    .then((data) =>{
-      setUser(data),
+    axios.
+    get("https://jsonplaceholder.typicode.com/users")
+    .then((response) =>{
+      setUser(response.data),
       setLoading(false);
     }
   )
@@ -254,7 +258,7 @@ function FetchData(){
 
     <ul>
       {
-        user.map((user)=>(
+        users.map((user)=>(
           <li key={user.id}>
            <span>Name:</span> {user.name} <br /> <span>Email:</span> {user.email}
           </li>
@@ -271,7 +275,15 @@ function App(){
     {/* <App1 /> */}
     {/* <App2 /> */}
     {/* <App3 /> */}
-    <FetchData />
+    {/* <FetchData /> */}
+
+    <Button variant='outlined' color='success'>
+      Click Here
+    </Button>
+
+    <Typography variant='h4'>
+      This is Text Under Typography
+    </Typography>
     </>
   )
 }
