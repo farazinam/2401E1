@@ -8,6 +8,13 @@ import axios from 'axios';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+import Cards from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardAction from '@mui/material/CardActions';
+
+import Container from '@mui/material/Container'
+import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
 
 //-------------- Day 1 ----------------
 
@@ -277,13 +284,43 @@ function App(){
     {/* <App3 /> */}
     {/* <FetchData /> */}
 
-    <Button variant='outlined' color='success'>
+    {/* ---- Componenets ---- */}
+
+    <Button variant='contained' color='success'>
       Click Here
     </Button>
 
     <Typography variant='h4'>
       This is Text Under Typography
     </Typography>
+
+    <Cards sx={{width: 300, backgroundColor: "lightgreen"}}>
+      <CardContent>
+        <Typography variant='h4'> Zero - Luna</Typography>
+        <Typography> WaterProof Watch </Typography>
+      </CardContent>
+      <CardAction>
+        <Button variant='contained'>ADD TO CART</Button>
+        <Button variant='contained'>Buy Now</Button>
+      </CardAction>
+    </Cards>
+
+    {/* ---- Layout ---- */}
+
+    <Container maxWidth="md" sx={{border: '1px solid green'}}>
+      This is Container
+    </Container>
+
+    <Box sx={{border: '1px solid blue', m:5, p:5}}>
+      This is a Box
+    </Box>
+
+    <Grid container spacing={2} sx={{display: 'flex'}}>
+      <Grid item xs={12} md={12} sx={{backgroundColor: 'gray', width: '600px', height: '200px'}} >This is Grid 1</Grid>
+      <Grid item xs={12} md={12} sx={{backgroundColor: 'gray', width: '600px'}}>This is Grid 2</Grid>
+    </Grid>
+
+
     </>
   )
 }
