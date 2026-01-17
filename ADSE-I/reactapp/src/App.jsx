@@ -16,6 +16,16 @@ import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 
+import LinkedIn from '@mui/icons-material/LinkedIn'
+import YT from '@mui/icons-material/YouTube'
+import WhatsApp from '@mui/icons-material/WhatsApp'
+import Facebook from '@mui/icons-material/Facebook'
+import GitHub from '@mui/icons-material/GitHub'
+import Insta from '@mui/icons-material/Instagram'
+
+import ContactForm from './Components/Form'
+import Index from './Components/WebPage'
+
 //-------------- Day 1 ----------------
 
 // function App() {
@@ -286,7 +296,7 @@ function App(){
 
     {/* ---- Componenets ---- */}
 
-    <Button variant='contained' color='success'>
+    {/* <Button variant='contained' color='success'>
       Click Here
     </Button>
 
@@ -303,11 +313,11 @@ function App(){
         <Button variant='contained'>ADD TO CART</Button>
         <Button variant='contained'>Buy Now</Button>
       </CardAction>
-    </Cards>
+    </Cards> */}
 
     {/* ---- Layout ---- */}
 
-    <Container maxWidth="md" sx={{border: '1px solid green'}}>
+    {/* <Container maxWidth="md" sx={{border: '1px solid green'}}>
       This is Container
     </Container>
 
@@ -318,7 +328,28 @@ function App(){
     <Grid container spacing={2} sx={{display: 'flex'}}>
       <Grid item xs={12} md={12} sx={{backgroundColor: 'gray', width: '600px', height: '200px'}} >This is Grid 1</Grid>
       <Grid item xs={12} md={12} sx={{backgroundColor: 'gray', width: '600px'}}>This is Grid 2</Grid>
-    </Grid>
+    </Grid> */}
+
+{/* <Button variant="outlined" startIcon={<LinkedIn />}>
+  Linked In
+</Button>
+<Button variant="outlined" startIcon={<Facebook />}>
+  FaceBook
+</Button>
+<Button variant="outlined" startIcon={<WhatsApp />}>
+ WhatsApp
+</Button>
+<Button variant="outlined" startIcon={<YT />}>
+  Youtube
+</Button>
+<Button variant="outlined" startIcon={<Insta />}>
+  Instagram
+</Button>
+<Button variant="outlined" startIcon={<GitHub />}> 
+</Button> */}
+
+{/* <ContactForm /> */}
+<Index />
 
 
     </>
