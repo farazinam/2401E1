@@ -26,6 +26,14 @@ import Insta from '@mui/icons-material/Instagram'
 import ContactForm from './Components/Form'
 import Index from './Components/WebPage'
 
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './Components/Navbar'
+
+import Ghar from './Pages/Home'
+import About from './Pages/About'
+import Services from './Pages/Services'
+import Contact from './Pages/Contact'
+
 //-------------- Day 1 ----------------
 
 // function App() {
@@ -349,8 +357,15 @@ function App(){
 </Button> */}
 
 {/* <ContactForm /> */}
-<Index />
+{/* <Index /> */}
 
+<Navbar />
+<Routes>
+  <Route path="/" element={<Ghar />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/services" element={<Services />} />
+  <Route path="/contact" element={<Contact />} />
+</Routes>
 
     </>
   )

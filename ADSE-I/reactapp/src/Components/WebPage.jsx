@@ -7,7 +7,7 @@ export default function Index() {
     return (
         <>
             {/* NavBar  */}
-            <AppBar position='static'>
+            {/* <AppBar position='static'>
                 <Toolbar>
                     <Typography variant='h5' sx={{ flexGrow: 1 }}>
                         Aptech
@@ -17,7 +17,7 @@ export default function Index() {
                     <Button sx={{ color: 'white' }}> Services </Button>
                     <Button sx={{ color: 'white' }}> Contact </Button>
                 </Toolbar>
-            </AppBar>
+            </AppBar> */}
 
             {/* Hero Section  */}
             <Box sx={{ color: 'white', backgroundColor: 'gray', p: 20, textAlign: 'center' }}>

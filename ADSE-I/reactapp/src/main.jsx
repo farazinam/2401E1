@@ -6,6 +6,8 @@ import App from './App.jsx'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 
+import { BrowserRouter } from 'react-router-dom'
+
 const t = createTheme({
   palette:{
     primary:{
@@ -15,10 +17,12 @@ const t = createTheme({
 })
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <ThemeProvider theme={t}>
       <CssBaseline />
+      <BrowserRouter>
     <App />
+    </BrowserRouter>
     </ThemeProvider>
-  </StrictMode>,
+  // </StrictMode>,
 )
