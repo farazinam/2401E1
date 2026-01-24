@@ -5,7 +5,7 @@ import './App.css'
 import Card from './Components/card'
 import axios from 'axios';
 
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import Cards from '@mui/material/Card';
@@ -13,7 +13,7 @@ import CardContent from '@mui/material/CardContent';
 import CardAction from '@mui/material/CardActions';
 
 import Container from '@mui/material/Container'
-import Box from '@mui/material/Box'
+// import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 
 import LinkedIn from '@mui/icons-material/LinkedIn'
@@ -33,6 +33,8 @@ import Ghar from './Pages/Home'
 import About from './Pages/About'
 import Services from './Pages/Services'
 import Contact from './Pages/Contact'
+
+import { TextField, Button, Box } from '@mui/material'
 
 //-------------- Day 1 ----------------
 
@@ -223,80 +225,79 @@ import Contact from './Pages/Contact'
 
 //---use effect ----
 
-function App1(){
-  useEffect(()=>{
-    console.log("This is Use Effect with no dependency Array");
-  })
+// function App1(){
+//   useEffect(()=>{
+//     console.log("This is Use Effect with no dependency Array");
+//   })
 
-  return (
-    <h1>Use Effect - no dependency Array</h1>
-  )
-}
+//   return (
+//     <h1>Use Effect - no dependency Array</h1>
+//   )
+// }
 
-function App2(){
-  useEffect(()=>{
-    console.log("This is Use Effect with empty dependency Array");
-  },[])
+// function App2(){
+//   useEffect(()=>{
+//     console.log("This is Use Effect with empty dependency Array");
+//   },[])
 
-  return (
-    <h1>Use Effect - empty dependency Array</h1>
-  )
-}
+//   return (
+//     <h1>Use Effect - empty dependency Array</h1>
+//   )
+// }
 
 
-function App3(){
-  const [count, setCount] = useState(0);   //useState
+// function App3(){
+//   const [count, setCount] = useState(0);   //useState
 
-  useEffect(()=>{
-    console.log("Count Updated: " + count);
-  },[count])
+//   useEffect(()=>{
+//     console.log("Count Updated: " + count);
+//   },[count])
 
-  return (
-    <>
-    <h1>Counter</h1>
-    <h4> Count : {count}</h4>
-    <button onClick={()=> setCount(count + 1)}>Increment</button>
+//   return (
+//     <>
+//     <h1>Counter</h1>
+//     <h4> Count : {count}</h4>
+//     <button onClick={()=> setCount(count + 1)}>Increment</button>
 
-    </>
-  )
-}
+//     </>
+//   )
+// }
 
 // ----- Fetch data - API ----
-function FetchData(){
-  const [users, setUser] = useState([]);
-  const [loading, setLoading] = useState(true);
+// function FetchData(){
+//   const [users, setUser] = useState([]);
+//   const [loading, setLoading] = useState(true);
 
-  useEffect(() =>{
-    axios.
-    get("https://jsonplaceholder.typicode.com/users")
-    .then((response) =>{
-      setUser(response.data),
-      setLoading(false);
-    }
-  )
-  },[])
+//   useEffect(() =>{
+//     axios.
+//     get("https://jsonplaceholder.typicode.com/users")
+//     .then((response) =>{
+//       setUser(response.data),
+//       setLoading(false);
+//     }
+//   )
+//   },[])
 
-  return (
-    <>
-    <h1> API DATA</h1>
-    {loading && <p>Loading...</p>}
+//   return (
+//     <>
+//     <h1> API DATA</h1>
+//     {loading && <p>Loading...</p>}
 
-    <ul>
-      {
-        users.map((user)=>(
-          <li key={user.id}>
-           <span>Name:</span> {user.name} <br /> <span>Email:</span> {user.email}
-          </li>
-        ))
-      }
-    </ul>
-    </>
-  )
-}
+//     <ul>
+//       {
+//         users.map((user)=>(
+//           <li key={user.id}>
+//            <span>Name:</span> {user.name} <br /> <span>Email:</span> {user.email}
+//           </li>
+//         ))
+//       }
+//     </ul>
+//     </>
+//   )
+// }
 
 function App(){
-  return (
-    <>
+
     {/* <App1 /> */}
     {/* <App2 /> */}
     {/* <App3 /> */}
@@ -359,13 +360,56 @@ function App(){
 {/* <ContactForm /> */}
 {/* <Index /> */}
 
-<Navbar />
+{/* <Navbar />
 <Routes>
   <Route path="/" element={<Ghar />} />
   <Route path="/about" element={<About />} />
   <Route path="/services" element={<Services />} />
   <Route path="/contact" element={<Contact />} />
-</Routes>
+</Routes> */}
+
+  const [user, setUser] = useState({
+    email: "",
+    password: ""
+  });
+
+  const handleChange = (e) =>{
+    setUser({...user, [e.target.name]: e.target.value})
+  }
+
+  const [errors, setError] = useState({});
+  
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+
+    let err = {};
+    if(!user.email){
+      err.e = "Email Required"
+    }
+    if(!user.password){
+      err.p = "Password Required"
+    }
+
+    setError(err);
+    
+  }
+
+  return (
+    <>
+
+{/* <input type="email" name="em" onChange={handleChange} />
+<input type="password" name="ps" onChange={handleChange} /> */}
+
+<Box component={"form"} onSubmit={handleSubmit} sx={{width: 400, mx: 'auto'}}>
+  <TextField label="email" name='email' margin='normal'
+  fullWidth value={user.email} onChange={handleChange}  helperText={errors.e} />
+
+  <TextField label="password" name='password' margin='normal'
+  fullWidth value={user.password} onChange={handleChange}
+  error={!!errors.p} helperText={errors.p} />
+
+  <Button type='submit' variant='contained'>Log In</Button>
+</Box>
 
     </>
   )
