@@ -23,6 +23,12 @@ function Navbar() {
         <li className="nav-item">
           <NavLink className="nav-link" to="/contact">Contact</NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/useRef">Use Ref</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/useHookForm">Use Hook Form</NavLink>
+        </li>
       </ul>
     </div>
   </div>

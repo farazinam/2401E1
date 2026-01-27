@@ -33,6 +33,8 @@ import Ghar from './Pages/Home'
 import About from './Pages/About'
 import Services from './Pages/Services'
 import Contact from './Pages/Contact'
+import UseRef from './Pages/UseRef'
+import UseHookForm from './Pages/UseHookForm'
 
 import { TextField, Button, Box } from '@mui/material'
 
@@ -360,58 +362,63 @@ function App(){
 {/* <ContactForm /> */}
 {/* <Index /> */}
 
-{/* <Navbar />
+  return (
+    <>
+ <Navbar />
 <Routes>
   <Route path="/" element={<Ghar />} />
   <Route path="/about" element={<About />} />
   <Route path="/services" element={<Services />} />
   <Route path="/contact" element={<Contact />} />
-</Routes> */}
+  <Route path="/useRef" element={<UseRef />} />
+  <Route path="/useHookForm" element={<UseHookForm />} />
+</Routes> 
 
-  const [user, setUser] = useState({
-    email: "",
-    password: ""
-  });
+</>
 
-  const handleChange = (e) =>{
-    setUser({...user, [e.target.name]: e.target.value})
-  }
+  // const [user, setUser] = useState({
+  //   email: "",
+  //   password: ""
+  // });
 
-  const [errors, setError] = useState({});
+  // const handleChange = (e) =>{
+  //   setUser({...user, [e.target.name]: e.target.value})
+  // }
+
+  // const [errors, setError] = useState({});
   
-  const handleSubmit = (e) =>{
-    e.preventDefault();
+  // const handleSubmit = (e) =>{
+  //   e.preventDefault();
 
-    let err = {};
-    if(!user.email){
-      err.e = "Email Required"
-    }
-    if(!user.password){
-      err.p = "Password Required"
-    }
+  //   let err = {};
+  //   if(!user.email){
+  //     err.e = "Email Required"
+  //   }
+  //   if(!user.password){
+  //     err.p = "Password Required"
+  //   }
 
-    setError(err);
+  //   setError(err);
     
-  }
+  // }
 
-  return (
-    <>
 
-{/* <input type="email" name="em" onChange={handleChange} />
-<input type="password" name="ps" onChange={handleChange} /> */}
 
-<Box component={"form"} onSubmit={handleSubmit} sx={{width: 400, mx: 'auto'}}>
-  <TextField label="email" name='email' margin='normal'
-  fullWidth value={user.email} onChange={handleChange}  helperText={errors.e} />
+// {/* <input type="email" name="em" onChange={handleChange} />
+// <input type="password" name="ps" onChange={handleChange} /> */}
 
-  <TextField label="password" name='password' margin='normal'
-  fullWidth value={user.password} onChange={handleChange}
-  error={!!errors.p} helperText={errors.p} />
+// {/* <Box component={"form"} onSubmit={handleSubmit} sx={{width: 400, mx: 'auto'}}>
+//   <TextField label="email" name='email' margin='normal'
+//   fullWidth value={user.email} onChange={handleChange}  helperText={errors.e} />
 
-  <Button type='submit' variant='contained'>Log In</Button>
-</Box>
+//   <TextField label="password" name='password' margin='normal'
+//   fullWidth value={user.password} onChange={handleChange}
+//   error={!!errors.p} helperText={errors.p} />
 
-    </>
+//   <Button type='submit' variant='contained'>Log In</Button>
+// </Box> */}
+
+  
   )
 }
 
