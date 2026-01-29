@@ -36,6 +36,8 @@ import Contact from './Pages/Contact'
 import UseRef from './Pages/UseRef'
 import UseHookForm from './Pages/UseHookForm'
 
+import LiftingStateUp from './Pages/LiftingStateUp'
+
 import { TextField, Button, Box } from '@mui/material'
 
 //-------------- Day 1 ----------------
@@ -372,6 +374,7 @@ function App(){
   <Route path="/contact" element={<Contact />} />
   <Route path="/useRef" element={<UseRef />} />
   <Route path="/useHookForm" element={<UseHookForm />} />
+  <Route path="/liftingStateUp" element={<LiftingStateUp />} />
 </Routes> 
 
 </>

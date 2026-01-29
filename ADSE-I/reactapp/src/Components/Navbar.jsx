@@ -29,6 +29,9 @@ function Navbar() {
         <li className="nav-item">
           <NavLink className="nav-link" to="/useHookForm">Use Hook Form</NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/liftingStateUp">Lifting State Up</NavLink>
+        </li>
       </ul>
     </div>
   </div>
