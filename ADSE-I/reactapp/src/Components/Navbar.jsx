@@ -32,6 +32,9 @@ function Navbar() {
         <li className="nav-item">
           <NavLink className="nav-link" to="/liftingStateUp">Lifting State Up</NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/contextAPI">Context API</NavLink>
+        </li>
       </ul>
     </div>
   </div>

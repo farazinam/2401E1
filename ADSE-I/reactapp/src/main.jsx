@@ -7,22 +7,25 @@ import { ThemeProvider, createTheme } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 
 import { BrowserRouter } from 'react-router-dom'
+import UserProvider from './Context/UserProvider.jsx'
 
 const t = createTheme({
-  palette:{
-    primary:{
-      main : "#556677"
+  palette: {
+    primary: {
+      main: "#556677"
     }
   }
 })
 
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
-    <ThemeProvider theme={t}>
-      <CssBaseline />
-      <BrowserRouter>
-    <App />
+  <UserProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={t}>
+        <CssBaseline />
+        <App />
+      </ThemeProvider>
     </BrowserRouter>
-    </ThemeProvider>
+  </UserProvider>
   // </StrictMode>,
 )

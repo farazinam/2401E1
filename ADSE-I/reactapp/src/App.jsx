@@ -35,6 +35,7 @@ import Services from './Pages/Services'
 import Contact from './Pages/Contact'
 import UseRef from './Pages/UseRef'
 import UseHookForm from './Pages/UseHookForm'
+import Dashboard from './Pages/Dashboard'
 
 import LiftingStateUp from './Pages/LiftingStateUp'
 
@@ -375,6 +376,7 @@ function App(){
   <Route path="/useRef" element={<UseRef />} />
   <Route path="/useHookForm" element={<UseHookForm />} />
   <Route path="/liftingStateUp" element={<LiftingStateUp />} />
+  <Route path="/contextAPI" element={<Dashboard />} />
 </Routes> 
 
 </>
