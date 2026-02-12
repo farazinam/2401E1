@@ -1,13 +1,9 @@
 import express from 'express';
 import { create, read } from "../controller/mycontroller.mjs"
 
-
-
-
-
 const allroutes = express.Router();
 
-allroutes.get('/create', create)
+allroutes.post('/create', create)
 allroutes.get('/read', read)
 
 export default allroutes
