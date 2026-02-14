@@ -18,7 +18,7 @@ function AddPro() {
         console.log(pro);
 
         try{
-            axios.post("https://localhost:3000/create", pro);
+            axios.post("http://localhost:3000/create", pro);
         }
 
         catch(error){

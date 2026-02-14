@@ -1,3 +1,5 @@
+import { database } from "../connection/connection.mjs";
+
 export const create = async (req,res) => {
     try { 
         const {pn, pp, pd} = req.body;
@@ -15,6 +17,15 @@ export const create = async (req,res) => {
 }
 
 
-export const read = (req, res) =>{
-    res.send("This is Read Page")
+export const read = async(req, res) =>{
+    try {
+    const result = await database
+      .collection("product")
+      .find({})
+      .toArray();   // IMPORTANT
+    res.send(result);   // send actual data
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).send("Error fetching data");
+  }
 }
