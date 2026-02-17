@@ -4,13 +4,26 @@ import { useState } from 'react'
 import axios from 'axios';
 
 function ViewPro() {
-  const [pro, fetchPro] = useState([]);
+  const [pro, setPro] = useState([]);
+
+  //Delete
+  const handleDelete = (id) =>{
+    try {
+      axios.delete(`http://localhost:3000/delete/${id}`);
+      setPro(pro.filter(u => u._id != id));
+      console.log(data);
+      alert("Record Deleted")
+    }
+    catch (error) {
+      console.log("Error Occured: ", error);
+    }
+  }
 
   const fetchRecords = async() => {
     try {
       const response = await axios.get("http://localhost:3000/read");
       const data = response.data;
-      fetchPro(data);
+      setPro(data);
       console.log(data);
     }
     catch (error) {
@@ -24,10 +37,10 @@ function ViewPro() {
 
   return (
     <div>
-      <h1>All Products</h1>
-      <table>
+      <h3 className='text-center'>All Products</h3>
+      <table className='table table-striped table-hover table-bordered'>
         <thead>
-          <tr>
+          <tr className='table-dark'>
             <th>Product ID</th>
             <th>Product Name</th>
             <th>Product Price</th>
@@ -42,7 +55,10 @@ function ViewPro() {
             <td>{p.ProductName}</td>
             <td>{p.ProductPrice}</td>
             <td>{p.ProductDescription}</td>
-            <td>Delete</td>
+            <td>
+              <button className='btn btn-warning m-2'>Edit</button>
+              <button onClick={() => (handleDelete(p._id))} className='btn btn-danger m-2'>Delete</button>
+            </td>
           </tr>
 ))}
         </tbody>

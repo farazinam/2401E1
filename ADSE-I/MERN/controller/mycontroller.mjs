@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import { database } from "../connection/connection.mjs";
 
 export const create = async (req,res) => {
@@ -24,6 +25,20 @@ export const read = async(req, res) =>{
       .find({})
       .toArray();   // IMPORTANT
     res.send(result);   // send actual data
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).send("Error fetching data");
+  }
+}
+
+export const deletePro = async(req, res) =>{
+    try {
+    const {id} = req.params;
+    await database
+      .collection("product")
+      .deleteOne({
+        _id: new ObjectId(id)
+      });
   } catch (error) {
     console.error("Error fetching data:", error);
     res.status(500).send("Error fetching data");
