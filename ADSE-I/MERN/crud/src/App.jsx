@@ -1,6 +1,7 @@
 import React from 'react'
 import AddPro from './Pages/AddPro'
 import ViewPro from './Pages/ViewPro'
+import UpdatePro from './Pages/UpdatePro'
 import { NavLink, Routes, Route, BrowserRouter } from 'react-router-dom'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <Routes>
       <Route path="/addPro" element={<AddPro />} />
       <Route path="/viewPro" element={<ViewPro />} />
+      <Route path="/update" element={<UpdatePro />} />
     </Routes>
 
     </BrowserRouter>

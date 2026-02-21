@@ -1,11 +1,14 @@
 import express from 'express';
-import { create, read, deletePro } from "../controller/mycontroller.mjs"
+import { create, read, deletePro, getIdFromView, UpdatePro } from "../controller/mycontroller.mjs"
 
 const allroutes = express.Router();
 
 allroutes.post('/create', create)
 allroutes.get('/read', read)
 allroutes.delete('/delete/:id', deletePro)
+
+allroutes.get('/update/:id', getIdFromView)
+allroutes.put('/update/:id', UpdatePro)
 
 export default allroutes
 

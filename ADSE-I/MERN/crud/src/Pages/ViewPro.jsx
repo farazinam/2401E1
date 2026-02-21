@@ -3,7 +3,17 @@ import { useEffect } from 'react';
 import { useState } from 'react'
 import axios from 'axios';
 
+import { useNavigate } from "react-router-dom";
+
 function ViewPro() {
+
+  //Update
+  const navigate = useNavigate();
+
+  const handleUpdate = (id) =>{
+    navigate('/update', {state: {userId: id}})
+  }
+
   const [pro, setPro] = useState([]);
 
   //Delete
@@ -18,6 +28,7 @@ function ViewPro() {
       console.log("Error Occured: ", error);
     }
   }
+
 
   const fetchRecords = async() => {
     try {
@@ -56,7 +67,7 @@ function ViewPro() {
             <td>{p.ProductPrice}</td>
             <td>{p.ProductDescription}</td>
             <td>
-              <button className='btn btn-warning m-2'>Edit</button>
+              <button onClick={() => (handleUpdate(p._id))} className='btn btn-warning m-2'>Edit</button>
               <button onClick={() => (handleDelete(p._id))} className='btn btn-danger m-2'>Delete</button>
             </td>
           </tr>

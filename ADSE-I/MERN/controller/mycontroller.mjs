@@ -44,3 +44,40 @@ export const deletePro = async(req, res) =>{
     res.status(500).send("Error fetching data");
   }
 }
+
+export const getIdFromView = async(req, res) =>{
+    try {
+    const {id} = req.params;
+    const result = await database
+      .collection("product")
+      .findOne({
+        _id: new ObjectId(id)
+      });
+      res.json(result);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).send("Error fetching data");
+  }
+}
+
+export const UpdatePro = async(req, res) =>{
+    try {
+    const {id} = req.params;
+    const {pn, pp, pd} = req.body;
+    const result = await database
+      .collection("product")
+      .updateOne({
+        _id: new ObjectId(id)},
+        {
+          $set: {
+            ProductName: pn,
+            ProductPrice: pp,
+            ProductDescription: pd,
+          }
+        }
+      );
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).send("Error fetching data");
+  }
+}
