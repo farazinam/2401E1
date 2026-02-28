@@ -20,8 +20,4 @@ const storage = new CloudinaryStorage({
   },
 });
  
-const parser = multer({ storage: storage });
- 
-app.post('/upload', parser.single('image'), function (req, res) {
-  res.json(req.file);
-});
+export const parser = multer({ storage: storage });
