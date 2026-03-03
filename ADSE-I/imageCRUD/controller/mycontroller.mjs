@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import { database } from "../connection/connection.mjs";
 
 export const AddProduct = async(req, res) =>{
@@ -15,6 +16,26 @@ export const AddProduct = async(req, res) =>{
         console.log("Error: ", error);   
     }
 }
-export const ViewProduct = (req, res) =>{
-    res.send("View Product")
+export const ViewProduct = async(req, res) =>{
+    try{
+        const data = await database.collection("imagecrud").find({}).toArray();
+        res.json(data)
+        console.log("Record Inserted", data);   
+    }
+    catch(error){
+        console.log("Error: ", error);   
+    }
+}
+
+export const DeleteProduct = async(req, res) =>{
+    try{
+        const {id} = req.params;
+        await database.collection("imagecrud").deleteOne({
+            _id: new ObjectId(id)
+        });
+        console.log("Record Delete");   
+    }
+    catch(error){
+        console.log("Error: ", error);   
+    }
 }
