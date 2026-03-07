@@ -11,15 +11,30 @@ function AddPro() {
     })
 
     const handleChange = (e) => {
-        setPro({...pro, [e.target.name]: e.target.value})
+        if(e.target.name == "pi"){
+            setPro({...pro, pi: e.target.files[0]})
+        }
+        else{
+            setPro({...pro, [e.target.name]: e.target.value})
+        }
     }
 
     const handleSubmit = (e) =>{
         e.preventDefault();
         console.log(pro);
 
+        const formData = new FormData();
+        formData.append("pn", pro.pn)
+        formData.append("pp", pro.pp)
+        formData.append("pd", pro.pd)
+        formData.append("pi", pro.pi)
+
         try{
-            axios.post("http://localhost:3000/create", pro);
+            axios.post("http://localhost:3000/product", formData, {
+                headers:{
+                    "Content-Type" : "multipart/form-data"
+                }
+            });
         }
 
         catch(error){

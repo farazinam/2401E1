@@ -1,4 +1,3 @@
-import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
 import axios from 'axios';
@@ -21,7 +20,7 @@ function ViewPro() {
     try {
       axios.delete(`http://localhost:3000/delete/${id}`);
       setPro(pro.filter(u => u._id != id));
-      console.log(data);
+      // console.log(data);
       alert("Record Deleted")
     }
     catch (error) {
@@ -32,7 +31,7 @@ function ViewPro() {
 
   const fetchRecords = async() => {
     try {
-      const response = await axios.get("http://localhost:3000/read");
+      const response = await axios.get("http://localhost:3000/product");
       const data = response.data;
       setPro(data);
       console.log(data);
@@ -66,6 +65,7 @@ function ViewPro() {
             <td>{p.ProductName}</td>
             <td>{p.ProductPrice}</td>
             <td>{p.ProductDescription}</td>
+            <td> <img src={p.ProductImage} alt="" /> </td>
             <td>
               <button onClick={() => (handleUpdate(p._id))} className='btn btn-warning m-2'>Edit</button>
               <button onClick={() => (handleDelete(p._id))} className='btn btn-danger m-2'>Delete</button>
