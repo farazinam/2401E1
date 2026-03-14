@@ -1,8 +1,13 @@
 import React from 'react'
+import Header from '../Shared/Header'
+import Footer from '../Shared/Header'
 
 function Index() {
   return (
    <div>
+
+    <Header />
+
   {/* Start Header Section */}
   <div className="banner">
     <div className="overlay">
@@ -369,7 +374,10 @@ function Index() {
     </div>
   </div>
   {/* End Client Section */}
+
+  <Footer />
 </div>
+
 
   )
 }
