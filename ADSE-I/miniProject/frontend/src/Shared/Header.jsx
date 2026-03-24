@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
@@ -101,10 +102,10 @@ function Header() {
           {/* Start Navigation List */}
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a className="active" href="index.html">Home</a>
+              <Link className="active" to="/home">Home</Link>
             </li>
             <li>
-              <a href="about.html">About Us</a>
+              <Link to="/about">About Us</Link>
             </li>
             <li>
               <a href="service.html">Service</a>
