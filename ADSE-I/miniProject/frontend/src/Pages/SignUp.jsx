@@ -3,20 +3,21 @@ import axios from 'axios'
 
 function SignUp() {
     const [signup, setSignup] = useState({
-        username: "",
+        un: "",
         email: "",
-        password:""    
+        password:"",
+        roleId: 1 
     });
 
     const handleChange = (e) => {
         setSignup({...signup, [e.target.name]: e.target.value})
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         try{
-            axios.post("http://localhost:3000", signup);
+            await axios.post("http://localhost:3000/signup", signup);
         }
         catch(e){
             console.log("Error: ", e);
@@ -68,7 +69,7 @@ function SignUp() {
               <h3>Sign Up</h3>
             </div>
             <div className="form-floating mb-3">
-              <input type="text" name='username' onChange={handleChange} className="form-control" id="floatingText" placeholder="jhondoe" />
+              <input type="text" name='un' onChange={handleChange} className="form-control" id="floatingText" placeholder="jhondoe" />
               <label htmlFor="floatingText">Username</label>
             </div>
             <div className="form-floating mb-3">

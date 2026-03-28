@@ -1,6 +1,6 @@
 import react from 'react'
 import express from 'express'
-import SignUp from '../frontend/src/Pages/SignUp';
+import { SignUp } from '../controller/allcontroller.mjs'
 
 const routes = express.Router();
 
