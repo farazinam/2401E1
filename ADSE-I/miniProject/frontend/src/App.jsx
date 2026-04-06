@@ -1,17 +1,31 @@
 import React from 'react'
-import Index from './Pages/Index'
+
 import { Routes, Route } from 'react-router-dom'
-import About from './Pages/About'
-import SignUp from './Pages/SignUp'
+import About from './UserPages/About'
+import SignUp from './UserPages/SignUp'
+import UserIndex from './UserPages/Index'
+import AdminIndex from './AdminPages/Index'
+import SignIn from './UserPages/SignIn'
+import PrivateRoute from './PrivateRoute'
 
 function App() {
   return (
 
     <>
     <Routes>
-      <Route path='/home' element={<Index />} />
+      <Route path='/userhome' element={
+        <PrivateRoute>
+          <UserIndex />
+        </PrivateRoute>
+      } />
+      <Route path='/adminhome' element={
+        <PrivateRoute>
+          <AdminIndex />
+        </PrivateRoute>
+      } />
       <Route path='/about' element={<About />} />
-      <Route path='/' element={<SignUp />} />
+      <Route path='/' element={<SignIn />} />
+      <Route path='/signup' element={<SignUp />} />
     </Routes>
     </>
   )
