@@ -54,3 +54,15 @@ export const SignIn = async (req, res) => {
     return res.status(500).json({ message: "Server Error" });
   }
 };
+
+
+export const ViewProduct = async(req, res) =>{
+    try{
+        const data = await database.collection("imagecrud").find({}).toArray();
+        res.json(data)
+        console.log("Record Fetched", data);   
+    }
+    catch(error){
+        console.log("Error: ", error);   
+    }
+}

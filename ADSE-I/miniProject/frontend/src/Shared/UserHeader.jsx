@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../ContextAPI'
 
 function UserHeader() {
+  const {logout} = useAuth();
   return (
     <div>
   {/*[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]*/}
@@ -52,7 +54,7 @@ function UserHeader() {
                 {/* Start Social Links */}
                 <ul className="social-list">
                   <li>
-                    <a href="#"><i className="fa fa-rss" /></a>
+                    <Link onClick={logout}><i className="fa fa-sign-out" /></Link>
                   </li>
                   <li>
                     <a href="#"><i className="fa fa-facebook" /></a>

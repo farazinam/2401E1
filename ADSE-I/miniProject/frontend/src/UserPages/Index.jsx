@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import UserHeader from '../Shared/UserHeader'
 import UserFooter from '../Shared/UserFooter'
+import axios from 'axios';
 
 
 function Index() {
+
+    const [pro, setPro] = useState([]);
+
+    const fetchRecords = async() => {
+    try {
+      const response = await axios.get("http://localhost:3000/product");
+      const data = response.data;
+      setPro(data);
+      console.log(data);
+    }
+    catch (error) {
+      console.log("Error Occured: ", error);
+    }
+  }
+
+  useEffect(() =>{
+    fetchRecords()
+  }, [])
+
+
   return (
    <div>
 
@@ -166,7 +187,7 @@ function Index() {
       <div className="row">
         <div className="col-md-12">
           <div className="section-title text-center wow fadeInDown" data-wow-duration="2s" data-wow-delay="50ms">
-            <h2>Our Portfolio</h2>
+            <h2>Our Product</h2>
             <p>Duis aute irure dolor in reprehenderit in voluptate</p>
           </div>                        
         </div>
@@ -175,72 +196,23 @@ function Index() {
         <div className="col-md-12">
           {/* Start Portfolio items */}
           <ul id="portfolio-list">
-            <li className="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
+
+
+            {pro.map(p =>(
+            <li key={p._id} className="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
               <div className="portfolio-item">
-                <img src="UserAsset/images/portfolio/img1.jpg" className="img-responsive" alt />
+                <img src={p.ProductImage} className="img-responsive" alt />
                 <div className="portfolio-caption">
-                  <h4>Portfolio Title</h4>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
+                  <h4>{p.ProductName}</h4> <br />
+                  <h4>{p.ProductPrice}</h4>
+                  <p>{p.ProductDescription}</p>
                   <a href="#portfolio-modal" data-toggle="modal" className="link-1"><i className="fa fa-magic" /></a>
                   <a href="#" className="link-2"><i className="fa fa-link" /></a>
                 </div>
               </div>
             </li>
-            <li className="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="600ms">
-              <div className="portfolio-item">
-                <img src="UserAsset/images/portfolio/img2.jpg" className="img-responsive" alt />
-                <div className="portfolio-caption">
-                  <h4>Portfolio Title</h4>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
-                  <a href="#portfolio-modal" data-toggle="modal" className="link-1"><i className="fa fa-magic" /></a>
-                  <a href="#" className="link-2"><i className="fa fa-link" /></a>
-                </div>
-              </div>
-            </li>
-            <li className="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="900ms">
-              <div className="portfolio-item">
-                <img src="UserAsset/images/portfolio/img3.jpg" className="img-responsive" alt />
-                <div className="portfolio-caption">
-                  <h4>Portfolio Title</h4>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
-                  <a href="#portfolio-modal" data-toggle="modal" className="link-1"><i className="fa fa-magic" /></a>
-                  <a href="#" className="link-2"><i className="fa fa-link" /></a>
-                </div>
-              </div>
-            </li>
-            <li className="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1200ms">
-              <div className="portfolio-item">
-                <img src="UserAsset/images/portfolio/img4.jpg" className="img-responsive" alt />
-                <div className="portfolio-caption">
-                  <h4>Portfolio Title</h4>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
-                  <a href="#portfolio-modal" data-toggle="modal" className="link-1"><i className="fa fa-magic" /></a>
-                  <a href="#" className="link-2"><i className="fa fa-link" /></a>
-                </div>
-              </div>
-            </li>
-            <li className="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1500ms">
-              <div className="portfolio-item">
-                <img src="UserAsset/images/portfolio/img5.jpg" className="img-responsive" alt />
-                <div className="portfolio-caption">
-                  <h4>Portfolio Title</h4>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
-                  <a href="#portfolio-modal" data-toggle="modal" className="link-1"><i className="fa fa-magic" /></a>
-                  <a href="#" className="link-2"><i className="fa fa-link" /></a>
-                </div>
-              </div>
-            </li>
-            <li className="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1800ms">
-              <div className="portfolio-item">
-                <img src="UserAsset/images/portfolio/img6.jpg" className="img-responsive" alt />
-                <div className="portfolio-caption">
-                  <h4>Portfolio Title</h4>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
-                  <a href="#portfolio-modal" data-toggle="modal" className="link-1"><i className="fa fa-magic" /></a>
-                  <a href="#" className="link-2"><i className="fa fa-link" /></a>
-                </div>
-              </div>
-            </li>
+            ))}
+
           </ul>
           {/* End Portfolio items */}
         </div>
