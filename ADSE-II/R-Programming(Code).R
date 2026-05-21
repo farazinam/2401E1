@@ -255,6 +255,151 @@ mat4;
 
 
 
+# ---- Array
+
+av1<-c(1,4,7,10);
+av2<-c(2,5,8,11);
+
+array1<-array(c(av1, av2), dim = c(2,3,2));
+array1;
+
+cols<-c("col1", "col2", "col3");
+rows<-c("row1", "row2");
+mat<-c("Matrix1", "Matrix2");
+
+array1<-array(c(av1, av2), dim = c(2,3,2), dimnames = list(rows, cols, mat));
+array1;
+
+print(array1[2,2,2]); #4
+print(array1[,2,2]);  #1, 4
+print(array1[2,,2]);  #11, 4, 10
+print(array1[2,2,]);  #10, 4
+
+av11<-c(3,4,5,6);
+av22<-c(2,3,2,3);
+
+array2<-array(c(av11, av22), dim = c(2,3,2));
+array2
+
+manipulateArray<-array1 + array2;
+manipulateArray;
+
+
+# Factor
+
+dir<-c("north", "west", "east", "south");
+is.factor(dir)
+
+res<-dir;
+print(res)
+
+res[3];
+
+res[c(2,4)]
+res[c(1,2)]
+res[c(2,3)]
+res[c(3,3)]
+
+res[c(2)]
+res[c(-2)]
+
+res[1]<-"east";
+res
+
+dir<-factor(dir)
+is.factor(dir)
+
+dir2<-c("north", "west", "east", "north");
+dir2<-factor(dir2)
+dir2
+
+factor(dir, levels = c("north", "west", "east", "south"), labels = c("N", "W", "E", "S"));
+
+fac<-gl(3, 2, labels = c("Ahmed", "Arsalan", "Arham"));
+fac
+
+
+# Import CSV file in R
+
+getwd();
+setwd("C:\\Users\\farazinam\\Documents");
+getwd();
+
+
+myfile<-read.csv("products_dataset.csv");
+
+View(myfile)
+print(is.data.frame(myfile));
+print(ncol(myfile))
+print(nrow(myfile))
+str(myfile)
+summary(myfile)
+names(myfile)
+length(myfile)
+
+myfile[c(7:13),]
+myfile[c(7:13), c(2:4)]
+
+#grep
+grep("TotalSale", colnames(myfile))
+
+salary<-myfile$Salary
+View(salary)
+
+myfile$prod<- myfile$Price + myfile$TotalSale;
+View(myfile$prod)
+View(myfile)
+
+maxP<- max(myfile$Price)
+maxP
+
+minP<- min(myfile$Price)
+minP
+
+khiRec<-subset(myfile, location="Karachi")
+print(khiRec)
+View(khiRec)
+
+k<-subset(myfile, Price > 99000)
+k
+View(k)
+
+install.packages("xlsx");
+
+
+# Data importing of MySQL database
+
+install.packages("RMySQL")
+library("RMySQL")
+
+setwd("C:\\Users\\farazinam\\AppData\\Local\\Temp\\RtmpKwdTbO\\downloaded_packages");
+
+con<-dbConnect(MySQL(),
+          username = "root",
+          password = "",
+          host = "localhost",
+          post = 3306,
+          dbname = "clothes"
+          );
+
+con<-dbConnect(MySQL(),
+               username = "root",
+               dbname = "clothes"
+);
+
+dbListTables(con);
+dbListFields(con, "product");
+
+selectTable <- dbGetQuery(con, "select * from product");
+View(selectTable);
+
+sel<-"select * from product";
+selectTable <- dbGetQuery(con, sel);
+View(selectTable);
+
+
+
+
 
 
 
