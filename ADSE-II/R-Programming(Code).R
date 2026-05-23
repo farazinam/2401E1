@@ -399,6 +399,60 @@ View(selectTable);
 
 
 
+# ---- Data Visualization -----------
+
+#Pie Chart
+
+x<-c(15, 62, 21, 77);
+label<-c("KPK", "Punjab", "Sindh", "Balochistan");
+pie(x, label);
+
+pie(x, label, main = "Provinces of Pakistan");
+pie(x, label, main = "Provinces of Pakistan", col = rainbow(length(x)));
+
+color<-c("black","red", "green", "blue");
+
+pie(x, label, main = "Provinces of Pakistan", col = color);
+
+legend("topright", label, cex = 0.8, fill = color)
+
+`# 3D Pie chart
+
+
+# Bar Chart
+
+h<-c(19, 32, 64, 81, 11);
+barplot(h);
+
+months<-c("Jan", "Feb", "March", "April", "May");
+region<-c("West", "North", "South");
+
+values<-matrix(c(21,32,33,14,95,46,67,78,39,11,22,23,94,15,16), nrow = 1, ncol = 5, byrow = TRUE)
+
+barplot(values, names.arg = months, xlab = "Month", ylab = "Revenue", col = c("red", "green", "blue"))
+
+
+#Scatter Plot
+
+View(mtcars)
+dim(mtcars)
+names(mtcars)
+specificRec<-mtcars[c(2:4),c("hp", "drat")]
+specificRec<-mtcars
+View(specificRec)
+
+plot(x = specificRec$wt, y = specificRec$mpg, 
+     xlab = "weight", ylab = "mileage",  
+     xlim = c(2.5,5), ylim = c(15,30), 
+     main= "weight v/s mileage" );
+
+
+
+
+
+
+
+
 
 
 
